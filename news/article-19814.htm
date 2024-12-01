@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-19814.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>flink内存模型详解与案例</title>
+        <meta name="description" content="任务提交时的一些yarn设置（通用客户端模式） 指定并行度&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &" />
+        <link rel="icon" href="__ADDON__/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                                <a href="/" class="navbar-brand">
+                    Today ClashNode
+                </a>
+                
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">关于</a></li>
+                        <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>flink内存模型详解与案例</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                          				  				  				<p>任务提交时的一些yarn设置（通用客户端模式）</p> <p>指定并行度&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -p 5 \</p> <p>指定yarn队列&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-Dyarn.application.queue=xxx \</p> <p>指定JM总进程的大小&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;-Djobmanager.memory.process.size=1024mb \</p> <p>指定每个TM的总进程大小，一般是 2-8g，yarn默认最大给8g&nbsp; &nbsp; -Dtaskmanager.memory.process.size=1024mb \</p> <p>指定每个TM的slot数&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-Dtaskmanager.numberOfTaskSlots=2 \</p> <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p> <p>flink 内存模型如下图：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/dd6d8144a1cc224c16f2d9337a136635.jpg" alt="flink内存模型详解与案例"></p> <p>&nbsp;1.flink框架内存使用了堆上内存和堆外内存，不计入slot资源</p> <p>2、task执行的内存使用了堆上内存和堆外内存</p> <p>3、网络缓冲内存：网络数据交换所使用的堆外内存大小，如网络数据交换缓冲区</p> <p>4、框架堆外内存、task堆外内存、网络缓冲内存，都在堆外的直接内存里。</p> <p>5、管理内存：flink管理的堆外内存。用于管理排序、哈希表、缓存中间结果及<strong>RocksDB State Backend</strong> 的本地内存</p> <p>6、jvm特有内存：jvm本身占用的内存，包括元空间和执行开销</p> <p>7、flink使用内存=框架堆内和堆外内+Task堆内和堆外内存+网络缓冲内存+管理内存</p> <p>8、进程内存=Flink内存+jvm特有内存</p> <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p> <p><span style="font-size: 18pt"><em><span style="text-decoration: underline"><strong>内存模型详解:</strong></span></em></span></p> <p><em><strong>jvm特定内存：jvm本身使用的内存，包含jvm的metaspace和over-head</strong></em></p> <p><span>①JVM metaspace：jvm元空间</span></p> <p><span>taskmanager.memory.jvm-metaspace.size 默认256mb</span></p> <p><span>②JVM over-head执行开销：JVM执行时自身所需要的内容，包括线程堆栈、IO、编译缓存等所使用的内存。</span></p> <p><span>taskmanager.memory.jvm-overhead.fraction, 默认0.1</span></p> <p><span>taskmanager.memory.jvm-overhead.min,&nbsp; &nbsp; &nbsp; 默认192mb</span></p> <p><span>taskmanager.memory.jvm-overhead.max,&nbsp; &nbsp; &nbsp;默认1gb</span></p> <p>总进程内存*fraction，如果小于配置的min或大于配置的max，则使用min/max</p> <p><em><strong>框架内存：flink框架，即TaskManager本身所占用的内存，不计入slot的资源中。</strong></em></p> <p>堆内：taskmanager.memory.framework.heap.size, 默认128mb</p> <p>堆外：taskmanager.memory.framework.off-heap.size,默认128mb</p> <p><em><strong>Task内存：Task执行用户代码时所使用的内存</strong></em></p> <p>堆内：taskmanager.memory.task.heap.size,默认none，由flinl内存口扣除掉其他部分的内存得到、</p> <p>堆外：taskmanager.memory.task.off-size,默认0，表示不使用堆外内存</p> <p><strong><em>网络内存：网络数据交换所使用的堆外内存大小，如网络数据交换缓冲区</em></strong></p> <p>堆外：taskmanager.memory.network.fraction,默认0.1</p> <p>　　　taskmanager.memory.network,min,默认64mb</p> <p>　　　taskmanager.memory.network.max,默认1gb</p> <p>flink内存*fraction，如果小于配置的min或大于配置的max，则使用min/max</p> <p><strong><em>管理内存：用于RocksDB State Backend 的本地内存和批的排序、哈希表、缓存中间结果。</em></strong></p> <p>堆外：taskmanager.memory.managed.fraction,默认0.4</p> <p>　　　taskmanager.memory.managed.size,默认none</p> <p>如果size没指定，则等于flink内存*fraction</p> <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p> <p><span style="font-size: 18pt"><em><strong>实际案例</strong></em></span></p> <p>基于yarn模式，一般参数指定的是总进程内存，taskmanager.memory.process.size,</p> <p>如果该大小为4G，每一块内存得到大小如下：</p> <p>①计算flink内存</p> <p>jvm元空间256m</p> <p>jvm执行开销：4g*0.1=409.6，在[192.1g]之间，最终结果409.6m</p> <p>flink内存=4g-256m-409.6m=3430.4m</p> <p>②网络内存=3430.4*0.1=343.04，在[64m,1g]之间，最终结果343.04m</p> <p>③托管内存=3430.4m*0.4=1372.16m</p> <p>④框架内存，堆内和堆外都是128m</p> <p>⑤Task堆内内存=3430.4m-128m-128m-343.04m-1372.16m=1459.2m<strong>堆内内存是总内存减去所有其他的内存。在总大小不变的情况小想调大堆内内存，就把其他内存调小。</strong></p> <p>&nbsp;------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p> <p><span style="font-size: 18pt"><em><strong>提交程序，查看flink ui结果。和计算的几乎一致</strong></em></span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/37a14e81e9f9891037c31fb78ef1bde2.jpg" alt="flink内存模型详解与案例"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/b7bee45ec16c972866c5b795a7699ddf.jpg" alt="flink内存模型详解与案例"></p> <p>&nbsp;------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p> <p><em><strong><span style="font-size: 18pt">JVM参数与内存</span></strong></em></p> <p>jvm Options：</p> <p>-Xmx1664299798</p> <p>-Xms1664299798&nbsp; &nbsp; &nbsp;jvm堆内内存大小(最大与最小)&nbsp; 约1587m=Task堆内+框架堆内</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/67afd62750ed52d247445a8278ee81f3.jpg" alt="flink内存模型详解与案例"></p> <p>&nbsp;-XX:MaxDirectMemorySize=493921243 jvm堆外内存大小&nbsp; &nbsp; 约471m=Task堆外+框架堆外+网络内存</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/29e9fee0f21d2c5ce48fe09439402b72.jpg" alt="flink内存模型详解与案例"></p> <p>-XX:MaxMetaspaceSize=268435456&nbsp; &nbsp;jvm元空间大小，约256m</p> <p>------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p> <p><span style="font-size: 18pt"><em><strong>调优原则，根据程序运行时每块内存的使用情况来调整。</strong></em></span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e645b3cbd41b5bc22ca5df5b0d5349c1.jpg" alt="flink内存模型详解与案例"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-19359.htm">最适合穷人养的宠物（穷人养什么宠物）</a></p>
+                                        <p>下一个：<a href="/news/article-19816.htm">.NET混合开发解决方案4 WebView2的线程模型</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-clash-node-daily-updates.htm" title="「11月4日」最高速度19.4M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「11月4日」最高速度19.4M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-18-clash-node-daily-updates.htm" title="「6月18日」最高速度19.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接">「6月18日」最高速度19.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-14-free-subscribe-node.htm" title="「7月14日」最高速度22.5M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「7月14日」最高速度22.5M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-shadowrocket-node.htm" title="「9月4日」最高速度22.1M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「9月4日」最高速度22.1M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-19-free-v2ray.htm" title="「9月19日」最高速度22.6M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「9月19日」最高速度22.6M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-4-node-share.htm" title="「8月4日」最高速度22M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「8月4日」最高速度22M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-12-free-node-subscribe.htm" title="「8月12日」最高速度21.7M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「8月12日」最高速度21.7M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-clash-node.htm" title="「11月5日」最高速度19.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「11月5日」最高速度19.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-today-clash-node.htm" title="「10月10日」最高速度19.5M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「10月10日」最高速度19.5M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-7-free-clash-subscribe.htm" title="「7月7日」最高速度19.7M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接">「7月7日」最高速度19.7M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
