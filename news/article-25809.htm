@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-25809.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>android适配器：BaseAdapter</title>
+        <meta name="description" content="BaseAdapter是个抽象类，需要我们继承编写子类实现自定义ListView适配器 1.自定义的adapter类 class MyAdapter extends BaseAdapter {    " />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                                <a href="/" class="navbar-brand">
+                    Today ClashNode
+                </a>
+                
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">关于</a></li>
+                        <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>android适配器：BaseAdapter</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <p><strong>BaseAdapter是个抽象类，需要我们继承编写子类实现自定义ListView适配器</strong></p> <pre><code class="language-html hljs">1.自定义的adapter类 class MyAdapter extends BaseAdapter {      View MyView;     //数据源     int img[]={R.drawable.f13,R.drawable.f14};     String str[]={"图片1","图片2"};     /**      * @return  返回项的个数       */     @Override     public int getCount() {         return str.length;     }      /**      * @param i      * @return 返回项对象      */     @Override     public Object getItem(int i) {         return null;     }      /**      * @param i      * @return  返回项的索引       */     @Override     public long getItemId(int i) {         return i;     }      /**      * @param i 项索引      * @param view 项布局文件      * @param viewGroup      * @return 返回每一项的视图       */     @Override     public View getView(int i, View view, ViewGroup viewGroup) {          /**          *view参数是自定义的项布局文件，第一次执行时是null,所以需要进行判断，如果是null则利用LayoutInflater进行解析          *之后系统会将view自动放入缓存，所以下次执行时则不用再次进行解析就可以使用，提高效率          */         if(view==null) {         LayoutInflater inflater=LayoutInflater.from(adapterActivity.this);//根据上下文创建解析对象             MyView =inflater.inflate(R.layout.base_adapter_item, null, false);//根据布局文件解析成view          }         MyView=view;         //1.获取控件         TextView textView=(TextView)MyView.findViewById(R.id.tv);         ImageView imageView=(ImageView)MyView.findViewById(R.id.imageView);         //2.根据索引从数据源中获取内容填充         textView.setText(str[i]);         imageView.setImageResource(img[i]);         return MyView;     } }</code></pre> <p><strong>2.执行的java代码</strong></p> <pre><code class="language-html hljs">MyAdapter myAdapter=new MyAdapter();//创建adapter对象 listView.setAdapter(myAdapter);//listView</code></pre> <p><strong>3.效果</strong></p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25338.htm">吉泰生物怎么样（吉泰公司怎么样）</a></p>
+                                        <p>下一个：<a href="/news/article-25810.htm">一元店货源从哪里进货（一元店进货渠道）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-free-ssr-node.htm" title="「10月26日」最高速度19.9M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「10月26日」最高速度19.9M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-clash.htm" title="「12月14日」最高速度23M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「12月14日」最高速度23M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-5-free-node-subscribe-links.htm" title="「7月5日」最高速度18.2M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「7月5日」最高速度18.2M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-12-free-node-subscribe-links.htm" title="「7月12日」最高速度19.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「7月12日」最高速度19.6M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-14-clash-node-daily-updates.htm" title="「8月14日」最高速度20.5M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「8月14日」最高速度20.5M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-18-free-clash-subscribe.htm" title="「7月18日」最高速度22.3M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅链接">「7月18日」最高速度22.3M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-free-node-subscribe-links.htm" title="「9月13日」最高速度21.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「9月13日」最高速度21.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-subscribe-node.htm" title="「10月21日」最高速度20.8M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「10月21日」最高速度20.8M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23936.htm" title="家用小型饲料颗粒机500元左右能用吗（家用小型饲料颗粒机500元左右能用吗）">家用小型饲料颗粒机500元左右能用吗（家用小型饲料颗粒机500元左右能用吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-4-node-share.htm" title="「8月4日」最高速度22M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「8月4日」最高速度22M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
