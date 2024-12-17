@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-26737.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>mysql中时间的储存方式_如何在MySQL 中存储日期？</title>
+        <meta name="description" content="问题阐述 可读的日期有很多种格式，能够适合很多情况。然而，这些格式都不是存储日期的最好方式。在MySQL 中存储日期的最简单方法是按照其在网页上显示的方式存储，例如“8th Marth2011”，采用" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                                <a href="/" class="navbar-brand">
+                    Today ClashNode
+                </a>
+                
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">关于</a></li>
+                        <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>mysql中时间的储存方式_如何在MySQL 中存储日期？</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>问题阐述</p> <p>可读的日期有很多种格式，能够适合很多情况。然而，这些格式都不是存储日期的最好方式。在MySQL 中存储日期的最简单方法是按照其在网页上显示的方式存储，例如“8th Marth2011”，采用这种方式非常不理想。</p> <p>因为，在MySQL 中运行的SQL 语句的WHERE 子句不允许出现下面的情况：</p> <p>SELECT * FROM table WHERE date &gt;’14th February 2011’</p> <p>14th February 2011 不是一个日期值，而只是一个字符串表示的日期，它无法像日期一样操作或比较，除非它被转换为日期值。如果用户以字符串方式存储日期，将需要不停地将它们在字符串和日期类型的值之间来回转换，这样做是十分让人头疼的。那么应该采用什么样的格式来存储日期呢？</p> <p>专家解答</p> <p>最理想的存储日期信息的方法是使用MySQL 时间戳。为了获得服务器本地时区的当前时间，可以使用now或CURRENT_TIMESTAMP 函数，也可以使用UTC_TIMESTAMP 函数获得UTC 时区时间戳。</p> <p>通过MySQL 日期时间函数来获取时间，完全符合MySQL 数据库存储的要求，是最为理想的方法。例如，在下面的语句中分别应用MySQL 中的CURRENT_TIMESTAMP、now 和UTC_TIMESTAMP 函数获取当前日期时间，如图5.2 所示。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/7c849137de16266ec6aeca3ff5074726.jpg" alt="mysql中时间的储存方式_如何在MySQL 中存储日期？"></p> <p>图5.2 应用MySQL 函数获取当前日期时间</p> <p>专家点评</p> <p>MySQL 时间戳要比UNIX 时间戳简单一些，其通用形式是“YYYY-MM-DD HH:MM:SS”，通常存储在类型为DATETIME(不要和DATE 及TIME弄混，它们分别存储“YYYY-MM-DD”和“HH:MM:SS”形式的值)的列中。</p> <p>这种形式的时间戳适用于简单的排序和比较操作，而且具有易读性的优点，同时还具有可以预计的长度，这使得它们比较容易验证。</p> <p>可以通过MySQL 的DATETIME 列类型利用许多MySQL 自身的日期和时间函数，如果需要，DATETIME 列类型也很容易转换为UNIX 时间戳。</p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-26275.htm">1970年阴历2月28是什么命（1970年阴历2月27的人命运）</a></p>
+                                        <p>下一个：<a href="/news/article-26740.htm">优瑞派山茶油狗粮是天然粮吗（优瑞派狗粮好吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-clash-windows.htm" title="「11月7日」最高速度20M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「11月7日」最高速度20M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-clash-windows.htm" title="「8月27日」最高速度22M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「8月27日」最高速度22M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-16-clash-windows.htm" title="「7月16日」最高速度19.4M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接">「7月16日」最高速度19.4M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-20-clash-v2ray-ss-ssr.htm" title="「9月20日」最高速度22.7M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「9月20日」最高速度22.7M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20274.htm" title="宠物体外驱虫多久做一次（宠物体外驱虫价格）">宠物体外驱虫多久做一次（宠物体外驱虫价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-shadowrocket-node.htm" title="「9月4日」最高速度22.1M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「9月4日」最高速度22.1M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26740.htm" title="优瑞派山茶油狗粮是天然粮吗（优瑞派狗粮好吗）">优瑞派山茶油狗粮是天然粮吗（优瑞派狗粮好吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-node-share.htm" title="「10月25日」最高速度20M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「10月25日」最高速度20M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24161.htm" title="SSM框架中实现数据库操作-从零学习SSM框架（3）">SSM框架中实现数据库操作-从零学习SSM框架（3）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-node-subscribe-links.htm" title="「11月21日」最高速度20.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「11月21日」最高速度20.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
