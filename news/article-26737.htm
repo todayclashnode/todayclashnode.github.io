@@ -88,7 +88,8 @@
         <div class="container">
             <div class="row" id="list">
                 <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>问题阐述</p> <p>可读的日期有很多种格式，能够适合很多情况。然而，这些格式都不是存储日期的最好方式。在MySQL 中存储日期的最简单方法是按照其在网页上显示的方式存储，例如“8th Marth2011”，采用这种方式非常不理想。</p> <p>因为，在MySQL 中运行的SQL 语句的WHERE 子句不允许出现下面的情况：</p> <p>SELECT * FROM table WHERE date &gt;’14th February 2011’</p> <p>14th February 2011 不是一个日期值，而只是一个字符串表示的日期，它无法像日期一样操作或比较，除非它被转换为日期值。如果用户以字符串方式存储日期，将需要不停地将它们在字符串和日期类型的值之间来回转换，这样做是十分让人头疼的。那么应该采用什么样的格式来存储日期呢？</p> <p>专家解答</p> <p>最理想的存储日期信息的方法是使用MySQL 时间戳。为了获得服务器本地时区的当前时间，可以使用now或CURRENT_TIMESTAMP 函数，也可以使用UTC_TIMESTAMP 函数获得UTC 时区时间戳。</p> <p>通过MySQL 日期时间函数来获取时间，完全符合MySQL 数据库存储的要求，是最为理想的方法。例如，在下面的语句中分别应用MySQL 中的CURRENT_TIMESTAMP、now 和UTC_TIMESTAMP 函数获取当前日期时间，如图5.2 所示。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/7c849137de16266ec6aeca3ff5074726.jpg" alt="mysql中时间的储存方式_如何在MySQL 中存储日期？"></p> <p>图5.2 应用MySQL 函数获取当前日期时间</p> <p>专家点评</p> <p>MySQL 时间戳要比UNIX 时间戳简单一些，其通用形式是“YYYY-MM-DD HH:MM:SS”，通常存储在类型为DATETIME(不要和DATE 及TIME弄混，它们分别存储“YYYY-MM-DD”和“HH:MM:SS”形式的值)的列中。</p> <p>这种形式的时间戳适用于简单的排序和比较操作，而且具有易读性的优点，同时还具有可以预计的长度，这使得它们比较容易验证。</p> <p>可以通过MySQL 的DATETIME 列类型利用许多MySQL 自身的日期和时间函数，如果需要，DATETIME 列类型也很容易转换为UNIX 时间戳。</p> </div> </div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>问题阐述</p> <p>可读的日期有很多种格式，能够适合很多情况。然而，这些格式都不是存储日期的最好方式。在MySQL 中存储日期的最简单方法是按照其在网页上显示的方式存储，例如“8th Marth2011”，采用这种方式非常不理想。</p> <p>因为，在MySQL 中运行的SQL 语句的WHERE 子句不允许出现下面的情况：</p> <p>SELECT * FROM table WHERE date &gt;’14th February 2011’</p> <p>14th February 2011 不是一个日期值，而只是一个字符串表示的日期，它无法像日期一样操作或比较，除非它被转换为日期值。如果用户以字符串方式存储日期，将需要不停地将它们在字符串和日期类型的值之间来回转换，这样做是十分让人头疼的。那么应该采用什么样的格式来存储日期呢？</p> <p>专家解答</p> <p>最理想的存储日期信息的方法是使用MySQL 时间戳。为了获得服务器本地时区的当前时间，可以使用now或CURRENT_TIMESTAMP 函数，也可以使用UTC_TIMESTAMP 函数获得UTC 时区时间戳。</p> <p>通过MySQL 日期时间函数来获取时间，完全符合MySQL 数据库存储的要求，是最为理想的方法。例如，在下面的语句中分别应用MySQL 中的CURRENT_TIMESTAMP、now 和UTC_TIMESTAMP 函数获取当前日期时间，如图5.2 所示。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/7c849137de16266ec6aeca3ff5074726.jpg" alt="mysql中时间的储存方式_如何在MySQL 中存储日期？"></p> <p>图5.2 应用MySQL 函数获取当前日期时间</p> <p>专家点评</p> <p>MySQL 时间戳要比UNIX 时间戳简单一些，其通用形式是“YYYY-MM-DD HH:MM:SS”，通常存储在类型为DATETIME(不要和DATE 及TIME弄混，它们分别存储“YYYY-MM-DD”和“HH:MM:SS”形式的值)的列中。</p> <p>这种形式的时间戳适用于简单的排序和比较操作，而且具有易读性的优点，同时还具有可以预计的长度，这使得它们比较容易验证。</p> <p>可以通过MySQL 的DATETIME 列类型利用许多MySQL 自身的日期和时间函数，如果需要，DATETIME 列类型也很容易转换为UNIX 时间戳。</p> </div> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-26275.htm">1970年阴历2月28是什么命（1970年阴历2月27的人命运）</a></p>
                                         <p>下一个：<a href="/news/article-26740.htm">优瑞派山茶油狗粮是天然粮吗（优瑞派狗粮好吗）</a></p>
@@ -101,16 +102,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-clash-windows.htm" title="「11月7日」最高速度20M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「11月7日」最高速度20M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-27-clash-windows.htm" title="「8月27日」最高速度22M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「8月27日」最高速度22M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-16-clash-windows.htm" title="「7月16日」最高速度19.4M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接">「7月16日」最高速度19.4M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-20-clash-v2ray-ss-ssr.htm" title="「9月20日」最高速度22.7M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「9月20日」最高速度22.7M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20274.htm" title="宠物体外驱虫多久做一次（宠物体外驱虫价格）">宠物体外驱虫多久做一次（宠物体外驱虫价格）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-shadowrocket-node.htm" title="「9月4日」最高速度22.1M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「9月4日」最高速度22.1M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-26740.htm" title="优瑞派山茶油狗粮是天然粮吗（优瑞派狗粮好吗）">优瑞派山茶油狗粮是天然粮吗（优瑞派狗粮好吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-node-share.htm" title="「10月25日」最高速度20M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「10月25日」最高速度20M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-24161.htm" title="SSM框架中实现数据库操作-从零学习SSM框架（3）">SSM框架中实现数据库操作-从零学习SSM框架（3）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-node-subscribe-links.htm" title="「11月21日」最高速度20.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「11月21日」最高速度20.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-clash-node.htm" title="「11月19日」最高速度21.3M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「11月19日」最高速度21.3M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-free-v2ray.htm" title="「9月23日」最高速度21.1M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「9月23日」最高速度21.1M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-shadowrocket-node.htm" title="「12月13日」最高速度20.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「12月13日」最高速度20.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21638.htm" title="上海宠物中心领养地址查询（上海宠物中心领养地址查询）">上海宠物中心领养地址查询（上海宠物中心领养地址查询）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-free-v2ray-subscribe.htm" title="「9月29日」最高速度21.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接">「9月29日」最高速度21.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-clash-windows.htm" title="「10月3日」最高速度23M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接">「10月3日」最高速度23M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-clash.htm" title="「12月14日」最高速度23M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「12月14日」最高速度23M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-free-clash-subscribe.htm" title="「10月15日」最高速度18.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「10月15日」最高速度18.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-clash-windows.htm" title="「8月15日」最高速度19.8M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「8月15日」最高速度19.8M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-clash.htm" title="「11月29日」最高速度22.6M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「11月29日」最高速度22.6M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -122,7 +123,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -157,6 +158,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <p class="copyrights-text mb-3 mb-lg-0">
                           TodayClashNode今日订阅站 版权所有 Powered by WordPress
                         </p>
