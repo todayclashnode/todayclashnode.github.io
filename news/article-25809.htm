@@ -88,7 +88,8 @@
         <div class="container">
             <div class="row" id="list">
                 <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="htmledit_views"> <p><strong>BaseAdapter是个抽象类，需要我们继承编写子类实现自定义ListView适配器</strong></p> <pre><code class="language-html hljs">1.自定义的adapter类 class MyAdapter extends BaseAdapter {      View MyView;     //数据源     int img[]={R.drawable.f13,R.drawable.f14};     String str[]={"图片1","图片2"};     /**      * @return  返回项的个数       */     @Override     public int getCount() {         return str.length;     }      /**      * @param i      * @return 返回项对象      */     @Override     public Object getItem(int i) {         return null;     }      /**      * @param i      * @return  返回项的索引       */     @Override     public long getItemId(int i) {         return i;     }      /**      * @param i 项索引      * @param view 项布局文件      * @param viewGroup      * @return 返回每一项的视图       */     @Override     public View getView(int i, View view, ViewGroup viewGroup) {          /**          *view参数是自定义的项布局文件，第一次执行时是null,所以需要进行判断，如果是null则利用LayoutInflater进行解析          *之后系统会将view自动放入缓存，所以下次执行时则不用再次进行解析就可以使用，提高效率          */         if(view==null) {         LayoutInflater inflater=LayoutInflater.from(adapterActivity.this);//根据上下文创建解析对象             MyView =inflater.inflate(R.layout.base_adapter_item, null, false);//根据布局文件解析成view          }         MyView=view;         //1.获取控件         TextView textView=(TextView)MyView.findViewById(R.id.tv);         ImageView imageView=(ImageView)MyView.findViewById(R.id.imageView);         //2.根据索引从数据源中获取内容填充         textView.setText(str[i]);         imageView.setImageResource(img[i]);         return MyView;     } }</code></pre> <p><strong>2.执行的java代码</strong></p> <pre><code class="language-html hljs">MyAdapter myAdapter=new MyAdapter();//创建adapter对象 listView.setAdapter(myAdapter);//listView</code></pre> <p><strong>3.效果</strong></p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><strong>BaseAdapter是个抽象类，需要我们继承编写子类实现自定义ListView适配器</strong></p> <pre><code class="language-html hljs">1.自定义的adapter类 class MyAdapter extends BaseAdapter {      View MyView;     //数据源     int img[]={R.drawable.f13,R.drawable.f14};     String str[]={"图片1","图片2"};     /**      * @return  返回项的个数       */     @Override     public int getCount() {         return str.length;     }      /**      * @param i      * @return 返回项对象      */     @Override     public Object getItem(int i) {         return null;     }      /**      * @param i      * @return  返回项的索引       */     @Override     public long getItemId(int i) {         return i;     }      /**      * @param i 项索引      * @param view 项布局文件      * @param viewGroup      * @return 返回每一项的视图       */     @Override     public View getView(int i, View view, ViewGroup viewGroup) {          /**          *view参数是自定义的项布局文件，第一次执行时是null,所以需要进行判断，如果是null则利用LayoutInflater进行解析          *之后系统会将view自动放入缓存，所以下次执行时则不用再次进行解析就可以使用，提高效率          */         if(view==null) {         LayoutInflater inflater=LayoutInflater.from(adapterActivity.this);//根据上下文创建解析对象             MyView =inflater.inflate(R.layout.base_adapter_item, null, false);//根据布局文件解析成view          }         MyView=view;         //1.获取控件         TextView textView=(TextView)MyView.findViewById(R.id.tv);         ImageView imageView=(ImageView)MyView.findViewById(R.id.imageView);         //2.根据索引从数据源中获取内容填充         textView.setText(str[i]);         imageView.setImageResource(img[i]);         return MyView;     } }</code></pre> <p><strong>2.执行的java代码</strong></p> <pre><code class="language-html hljs">MyAdapter myAdapter=new MyAdapter();//创建adapter对象 listView.setAdapter(myAdapter);//listView</code></pre> <p><strong>3.效果</strong></p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-25338.htm">吉泰生物怎么样（吉泰公司怎么样）</a></p>
                                         <p>下一个：<a href="/news/article-25810.htm">一元店货源从哪里进货（一元店进货渠道）</a></p>
@@ -101,16 +102,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-11-free-ssr-node.htm" title="「8月11日」最高速度18.6M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「8月11日」最高速度18.6M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-22561.htm" title="React功能篇 &#8211; 使用react-i18next进行国际化">React功能篇 &#8211; 使用react-i18next进行国际化</a></li>
-                        <li class="py-2"><a href="/news/article-19036.htm" title="南京哪里领养宠物比较好的地方（南京哪里有领养宠物的地方）">南京哪里领养宠物比较好的地方（南京哪里有领养宠物的地方）</a></li>
-                        <li class="py-2"><a href="/news/article-19037.htm" title="驱虫药猫多少钱（驱虫药猫多少钱一瓶）">驱虫药猫多少钱（驱虫药猫多少钱一瓶）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-18-clash-node-daily-updates.htm" title="「6月18日」最高速度19.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接">「6月18日」最高速度19.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-10-free-ssr-subscribe.htm" title="「7月10日」最高速度21.2M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接">「7月10日」最高速度21.2M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-v2ray-subscribe.htm" title="「9月6日」最高速度18.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「9月6日」最高速度18.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-17-free-v2ray-subscribe.htm" title="「9月17日」最高速度22.9M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接">「9月17日」最高速度22.9M/S，2024年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-node-subscribe.htm" title="「10月18日」最高速度20.4M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「10月18日」最高速度20.4M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-25-shadowrocket-node.htm" title="「9月25日」最高速度19.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「9月25日」最高速度19.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-9-clash-node.htm" title="「7月9日」最高速度21.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「7月9日」最高速度21.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-shadowrocket-node.htm" title="「10月2日」最高速度21.7M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「10月2日」最高速度21.7M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-free-v2ray-subscribe.htm" title="「9月29日」最高速度21.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接">「9月29日」最高速度21.3M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-clash-subscribe.htm" title="「11月9日」最高速度18.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「11月9日」最高速度18.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24871.htm" title="动物在哪打疫苗好（动物在哪打疫苗好一点）">动物在哪打疫苗好（动物在哪打疫苗好一点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-clash-v2ray-ss-ssr.htm" title="「10月27日」最高速度18.1M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「10月27日」最高速度18.1M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-high-speed-nodes.htm" title="「11月17日」最高速度21M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「11月17日」最高速度21M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-3-shadowrocket-node.htm" title="「8月3日」最高速度19.4M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「8月3日」最高速度19.4M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-17-clash-node-daily-updates.htm" title="「6月17日」最高速度21.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接">「6月17日」最高速度21.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-today-clash-node.htm" title="「10月12日」最高速度19.4M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「10月12日」最高速度19.4M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -122,7 +123,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -157,6 +158,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <p class="copyrights-text mb-3 mb-lg-0">
                           TodayClashNode今日订阅站 版权所有 Powered by WordPress
                         </p>
