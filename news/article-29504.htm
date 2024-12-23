@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-29504.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Android 深色模式适配总结</title>
+        <meta name="description" content="前言 iOS13推出暗黑模式，既然苹果实现了暗黑模式，那么安卓肯定不能落下啊，所以在安卓10（Q API级别29）中支持了暗黑模式，不过官方的叫法为Dark theme。  适配流程  主题设置 为了" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                                <a href="/" class="navbar-brand">
+                    Today ClashNode
+                </a>
+                
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">关于</a></li>
+                        <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>Android 深色模式适配总结</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-github-gist"> </h1> <h2> <a id="_2" rel="nofollow"></a>前言</h2> <p>iOS13推出暗黑模式，既然苹果实现了暗黑模式，那么安卓肯定不能落下啊，所以在安卓10（Q API级别29）中支持了暗黑模式，不过官方的叫法为Dark theme。</p> <h2> <a id="_8" rel="nofollow"></a>适配流程</h2> <h3> <a id="_10" rel="nofollow"></a>主题设置</h3> <p>为了支持Dark主题，必须将应用的主题设置为继承自<code>DayNight</code>系列的主题。</p> <pre><code>Theme.MaterialComponents.DayNight.DarkActionBar 或： Theme.AppCompat.DayNight </code></pre> <h3> <a id="_20" rel="nofollow"></a>资源文件处理</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221225/bd6c7f76ad6f64197a08886465881ab9.jpg" alt="Android 深色模式适配总结"></p> <p>需要在对应的资源文件中添加<code>night</code>文件夹，这里存放的就是深色模式相关的资源，也就是说需要准备2套资源。</p> <p>如：</p> <p>values strings.xml和values-night strings.xml</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221225/75946e83c4d859b4a969598f90ab5293.jpg" alt="Android 深色模式适配总结"></p> <p>values-colors.xml和values-night strings.xml</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221225/fdab5c3a9f116675ba05011aef094da5.jpg" alt="Android 深色模式适配总结"></p> <h3> <a id="_36" rel="nofollow"></a>代码相关</h3> <p><strong>XML布局：</strong></p> <pre><code class="prism language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>LinearLayout</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>     <span class="token attr-name"><span class="token namespace">xmlns:</span>app</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res-auto<span class="token punctuation">"</span></span>     <span class="token attr-name"><span class="token namespace">xmlns:</span>tools</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.android.com/tools<span class="token punctuation">"</span></span>     <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>match_parent<span class="token punctuation">"</span></span>     <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>match_parent<span class="token punctuation">"</span></span>     <span class="token attr-name"><span class="token namespace">android:</span>background</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@color/color_background<span class="token punctuation">"</span></span>     <span class="token attr-name"><span class="token namespace">android:</span>gravity</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center_horizontal<span class="token punctuation">"</span></span>     <span class="token attr-name"><span class="token namespace">android:</span>orientation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>vertical<span class="token punctuation">"</span></span>     <span class="token attr-name"><span class="token namespace">tools:</span>context</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>.MainActivity<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ImageView</span>         <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@+id/imageView<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200dp<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>100dp<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_marginTop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10dp<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>scaleType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fitXY<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@drawable/light<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ImageView</span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50dp<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>50dp<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_marginTop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10dp<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>background</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@drawable/frame_shape<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@drawable/ic_daynight<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">app:</span>tint</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@color/color_daynight<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TextView</span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_marginTop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10dp<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/day_night<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>textColor</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@color/color_daynight<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>textSize</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>18sp<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>LinearLayout</span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>layout_marginTop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10dp<span class="token punctuation">"</span></span>         <span class="token attr-name"><span class="token namespace">android:</span>orientation</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>horizontal<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span>             <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@+id/btnLight<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>浅色模式<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span>             <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@+id/btnDark<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>layout_marginHorizontal</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10dp<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>深色模式<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Button</span>             <span class="token attr-name"><span class="token namespace">android:</span>id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@+id/btnSystem<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>layout_width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>layout_height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>wrap_content<span class="token punctuation">"</span></span>             <span class="token attr-name"><span class="token namespace">android:</span>text</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>跟随系统<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>LinearLayout</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>LinearLayout</span><span class="token punctuation">&gt;</span></span> </code></pre> <p><strong>代码：</strong></p> <pre><code class="prism language-kotlin"><span class="token keyword">object</span> ThemeUtils <span class="token punctuation">{<!-- --></span>     <span class="token comment">/**      * 是否深色主题      */</span>     <span class="token keyword">fun</span> <span class="token function">isDarkTheme</span><span class="token punctuation">(</span>context<span class="token operator">:</span> Context<span class="token punctuation">)</span><span class="token operator">:</span> Boolean <span class="token punctuation">{<!-- --></span>         <span class="token keyword">val</span> flag <span class="token operator">=</span> context<span class="token punctuation">.</span>resources<span class="token punctuation">.</span>configuration<span class="token punctuation">.</span>uiMode <span class="token operator">and</span> Configuration<span class="token punctuation">.</span>UI_MODE_NIGHT_MASK         <span class="token keyword">return</span> flag <span class="token operator">==</span> Configuration<span class="token punctuation">.</span>UI_MODE_NIGHT_YES     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <pre><code class="prism language-kotlin"><span class="token keyword">class</span> MainActivity <span class="token operator">:</span> <span class="token function">AppCompatActivity</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token operator">:</span> Bundle<span class="token operator">?</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onCreate</span><span class="token punctuation">(</span>savedInstanceState<span class="token punctuation">)</span>         <span class="token function">setContentView</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>layout<span class="token punctuation">.</span>activity_main<span class="token punctuation">)</span>         Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"TAG"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Activity onCreate()"</span></span><span class="token punctuation">)</span>         <span class="token function">initView</span><span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token punctuation">}</span>      <span class="token keyword">private</span> <span class="token keyword">fun</span> <span class="token function">initView</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">//手动切换深色模式</span>         btnLight<span class="token punctuation">.</span><span class="token function">setOnClickListener</span> <span class="token punctuation">{<!-- --></span>             AppCompatDelegate<span class="token punctuation">.</span><span class="token function">setDefaultNightMode</span><span class="token punctuation">(</span>AppCompatDelegate<span class="token punctuation">.</span>MODE_NIGHT_NO<span class="token punctuation">)</span>         <span class="token punctuation">}</span>         btnDark<span class="token punctuation">.</span><span class="token function">setOnClickListener</span> <span class="token punctuation">{<!-- --></span>             AppCompatDelegate<span class="token punctuation">.</span><span class="token function">setDefaultNightMode</span><span class="token punctuation">(</span>AppCompatDelegate<span class="token punctuation">.</span>MODE_NIGHT_YES<span class="token punctuation">)</span>         <span class="token punctuation">}</span>         btnSystem<span class="token punctuation">.</span><span class="token function">setOnClickListener</span> <span class="token punctuation">{<!-- --></span>             AppCompatDelegate<span class="token punctuation">.</span><span class="token function">setDefaultNightMode</span><span class="token punctuation">(</span>AppCompatDelegate<span class="token punctuation">.</span>MODE_NIGHT_FOLLOW_SYSTEM<span class="token punctuation">)</span>         <span class="token punctuation">}</span>     <span class="token punctuation">}</span>      <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">onStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onStart</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         <span class="token keyword">if</span> <span class="token punctuation">(</span>ThemeUtils<span class="token punctuation">.</span><span class="token function">isDarkTheme</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             imageView<span class="token punctuation">.</span><span class="token function">setImageResource</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>drawable<span class="token punctuation">.</span>dark<span class="token punctuation">)</span>         <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{<!-- --></span>             imageView<span class="token punctuation">.</span><span class="token function">setImageResource</span><span class="token punctuation">(</span>R<span class="token punctuation">.</span>drawable<span class="token punctuation">.</span>light<span class="token punctuation">)</span>         <span class="token punctuation">}</span>     <span class="token punctuation">}</span>      <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onDestroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span>         Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"TAG"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"Activity onDestroy()"</span></span><span class="token punctuation">)</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p><strong>效果：</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221225/15ee55c4e671c6ae7af5664bc8f59099.jpg" alt="Android 深色模式适配总结"></p> <h2> <a id="_162" rel="nofollow"></a>配置变更问题</h2> <p>当切换深色模式时，Activity就会重新加载，重走生命周期流程。</p> <p>为了避免界面重新加载，可以在<code>AndroidManifest.xml</code>文件中设置Activity的<code>android:configChanges="uiMode"</code>。当配置发生变化时，可以通过<code>onConfigurationChanged()</code>方法监听当前应用是什么模式。</p> <p><strong>Activity#onConfigurationChanged()</strong></p> <pre><code class="prism language-kotlin"><span class="token comment">//监听系统深色模式切换</span> <span class="token keyword">override</span> <span class="token keyword">fun</span> <span class="token function">onConfigurationChanged</span><span class="token punctuation">(</span>newConfig<span class="token operator">:</span> Configuration<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     Log<span class="token punctuation">.</span><span class="token function">e</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"TAG"</span></span><span class="token punctuation">,</span> <span class="token string-literal singleline"><span class="token string">"onConfigurationChanged:"</span></span><span class="token punctuation">)</span>     <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">onConfigurationChanged</span><span class="token punctuation">(</span>newConfig<span class="token punctuation">)</span>     <span class="token keyword">val</span> currentNightMode <span class="token operator">=</span> newConfig<span class="token punctuation">.</span>uiMode <span class="token operator">and</span> Configuration<span class="token punctuation">.</span>UI_MODE_NIGHT_MASK     <span class="token keyword">when</span> <span class="token punctuation">(</span>currentNightMode<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         Configuration<span class="token punctuation">.</span>UI_MODE_NIGHT_NO <span class="token operator">-&gt;</span> <span class="token punctuation">{<!-- --></span>             <span class="token comment">// 夜间模式未启用，我们正在使用浅色主题</span>             textView<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"当前浅色模式"</span></span><span class="token punctuation">)</span>         <span class="token punctuation">}</span>         Configuration<span class="token punctuation">.</span>UI_MODE_NIGHT_YES <span class="token operator">-&gt;</span> <span class="token punctuation">{<!-- --></span>             <span class="token comment">// 夜间模式启用，我们使用的是深色主题</span>             textView<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span><span class="token string-literal singleline"><span class="token string">"当前深色模式"</span></span><span class="token punctuation">)</span>         <span class="token punctuation">}</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="httpsgithubcomxiangxiongflyAndroidDayNight_191" rel="nofollow"></a><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/xiangxiongfly/AndroidDayNight"  rel="nofollow">代码下载</a><br /> </h2> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-29052.htm">动物疫苗监管部门是哪里监管的（动物疫苗管理法律法规）</a></p>
+                                        <p>下一个：<a href="/news/article-29505.htm">猫三联一共几针,间隔多久打第二针好呢（猫三联一共几针分几次打完?）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-clash-windows.htm" title="「10月17日」最高速度20.9M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「10月17日」最高速度20.9M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-23-clash-v2ray-ss-ssr.htm" title="「7月23日」最高速度18.4M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「7月23日」最高速度18.4M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-node-share-links.htm" title="「10月23日」最高速度21.3M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅链接">「10月23日」最高速度21.3M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-13-free-node-subscribe-links.htm" title="「8月13日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「8月13日」最高速度18.2M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-clash-node.htm" title="「12月6日」最高速度21.4M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「12月6日」最高速度21.4M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-clash-subscribe.htm" title="「12月15日」最高速度19M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「12月15日」最高速度19M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-24870.htm" title="动物疫苗预防控制中心官网电话（动物疫苗厂家电话）">动物疫苗预防控制中心官网电话（动物疫苗厂家电话）</a></li>
+                        <li class="py-2"><a href="/news/article-19036.htm" title="南京哪里领养宠物比较好的地方（南京哪里有领养宠物的地方）">南京哪里领养宠物比较好的地方（南京哪里有领养宠物的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-23019.htm" title="学宠物医生上什么专科学校好（学宠物医生有前景吗?）">学宠物医生上什么专科学校好（学宠物医生有前景吗?）</a></li>
+                        <li class="py-2"><a href="/news/article-28120.htm" title="SpringBoot三种方式实现定时任务">SpringBoot三种方式实现定时任务</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
