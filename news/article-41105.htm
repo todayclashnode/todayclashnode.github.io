@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-41105.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@DateTimeFormat 注解 和 @JsonFormat 注解</title>
+        <meta name="description" content="一、背景 &nbsp;平常在web开发过程中，在前后台日期数据的交互过程中，经常会遇到一些问题。实体类里面使用的是java.util.Date类型保存日期数据。而前台向后台传递数据的时候用的是字符串。" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                                <a href="/" class="navbar-brand">
+                    Today ClashNode
+                </a>
+                
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">关于</a></li>
+                        <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>@DateTimeFormat 注解 和 @JsonFormat 注解</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>一、背景</p> <p>&nbsp;平常在web开发过程中，在前后台日期数据的交互过程中，经常会遇到一些问题。实体类里面使用的是java.util.Date类型保存日期数据。而前台向后台传递数据的时候用的是字符串。这样会出现格式转换问题。而在后台向前台传递数据的过程中。日期格式将会被转换为长整型。这显然不是我们想要的结果。为了解决此类问题。就用到了<strong>@DateTimeFormat</strong>注解&nbsp; 和<strong>@JsonFormat</strong>&nbsp;注解。</p> <p>二、发现问题</p> <p>在网上查阅资料的过程中，发现大部分作者给出的解释并不全面，大多数都是说，前台向后台传递数据用@DateTimeFormat注解。而后台向前台传递就用@JsonFormat注解。。实际上@DateTimeFormat注解只会在类似@RequestParam的请求参数（url拼接的参数才生效，如果是放到RequestBody中的form-data也是无效的）上生效，如果@DateTimeFormat放到@RequestBody下是无效的。而@JsonFormat注解却可以转换这种情况下的参数。</p> <p>三、对比总结及使用</p> <p>&nbsp; &nbsp; &nbsp;1.&nbsp;@DateTimeFormat用于前台向后台&nbsp;，将传入的字符串转换为Date类型。当然只能转换类似于@RequestParam()这种url拼接的参数。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; ①引入依赖（spring就不写了）</p> <pre><code>&lt;!-- joda-time --&gt; &lt;dependency&gt; &lt;groupId&gt;joda-time&lt;/groupId&gt; &lt;artifactId&gt;joda-time&lt;/artifactId&gt; &lt;version&gt;2.3&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp;②&nbsp;在实体类的需要类型转换的属性上加上@DateTimeFormat注解。</p> <pre><code>package com.**.model;  import lombok.Data;  @Data public class User {     private Integer id;     private String userName;     @DateTimeFormat(pattern = "yyyy-MM-dd")     private Date birth; }</code></pre> <p>&nbsp; &nbsp;2. @JsonFormat&nbsp;后台向前台，将日期格式的数据格式转化为们所需要的数据。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;前台向后台，将 Content-Type类型为application/json的字符串转换为Date类型。u</p> <p>&nbsp; &nbsp; &nbsp; ①.&nbsp;引入依赖（spring boot项目已经帮我们引入了，所以不需要重复引入）</p> <pre><code>&lt;dependency&gt; &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt; &lt;artifactId&gt;jackson-annotations&lt;/artifactId&gt; &lt;version&gt;2.8.8&lt;/version&gt; &lt;/dependency&gt;  &lt;dependency&gt; &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt; &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt; &lt;version&gt;2.8.8&lt;/version&gt; &lt;/dependency&gt;  &lt;dependency&gt; &lt;groupId&gt;org.codehaus.jackson&lt;/groupId&gt; &lt;artifactId&gt;jackson-mapper-asl&lt;/artifactId&gt; &lt;version&gt;1.9.13&lt;/version&gt; &lt;/dependency&gt;</code></pre> <p>&nbsp; &nbsp; &nbsp;②&nbsp;在实体类的需要类型转换的属性上加上@JsonFormat注解。</p> <pre><code>package com.**.model;  import lombok.Data;  @Data public class User {     private Integer id;     private String userName;     @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")     private Date birth; }</code></pre> <p>3.参数解释</p> <pre><code>@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8") pattern ：需要转换的日期格式 timezone:时区，北京时间东八区 所以是GMT+8</code></pre> <p>四、总结</p> <p>&nbsp; &nbsp; 1.后台向前台的日期类型格式化。只需要@JsonFormat一个注解就可以了</p> <p>&nbsp; &nbsp; 2.前台向后台则需要&nbsp;需求分析到底使用@JsonFormat注解&nbsp;还是 @DateTimeFormat注解。</p> <p>原文链接：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.jhone.top"  rel="nofollow">http://www.jhone.top</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-40624.htm">动物医院的英语单词有哪些呢 动物医院的英语单词有哪些呢怎么读</a></p>
+                                        <p>下一个：<a href="/news/article-41106.htm">LVGL PC模拟器安装步骤详解_安装教程</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20274.htm" title="宠物体外驱虫多久做一次（宠物体外驱虫价格）">宠物体外驱虫多久做一次（宠物体外驱虫价格）</a></li>
+                        <li class="py-2"><a href="/news/article-30478.htm" title="哪里卖狗粮便宜又好（哪里能买狗粮）">哪里卖狗粮便宜又好（哪里能买狗粮）</a></li>
+                        <li class="py-2"><a href="/news/article-39152.htm" title="动物医院许可证的有效期是多久 动物医院许可证的有效期是多久啊">动物医院许可证的有效期是多久 动物医院许可证的有效期是多久啊</a></li>
+                        <li class="py-2"><a href="/news/article-41106.htm" title="LVGL PC模拟器安装步骤详解_安装教程">LVGL PC模拟器安装步骤详解_安装教程</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-shadowrocket-node.htm" title="「12月31日」最高速度22.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「12月31日」最高速度22.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22105.htm" title="Python 3.10 的一些新特性">Python 3.10 的一些新特性</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-v2ray-subscribe.htm" title="「11月30日」最高速度22.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「11月30日」最高速度22.9M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-clash-subscribe.htm" title="「11月11日」最高速度19.6M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「11月11日」最高速度19.6M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-today-clash-node.htm" title="「11月27日」最高速度19.8M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「11月27日」最高速度19.8M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-34972.htm" title="八公宠物领养网站官网（八公宠物领养网站官网入口）">八公宠物领养网站官网（八公宠物领养网站官网入口）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
