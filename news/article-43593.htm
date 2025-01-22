@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-43593.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HashMap集合</title>
+        <meta name="description" content="HashMap集合  1. HashMap介绍   1.1 HashMap的简介 1.2 HashMap的数据结构（1.7和1.8） 1.4 HashMap需要同时重写hashCode方法和equal" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-43593.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="HashMap集合" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/268c6fb6b397dee3eb599d4f754b5a8f.webp" />
+        <meta property="og:release_date" content="2025-01-20T07:12:45" />
+    <meta property="og:updated_time" content="2025-01-20T07:12:45" />
+        <meta property="og:description" content="HashMap集合  1. HashMap介绍   1.1 HashMap的简介 1.2 HashMap的数据结构（1.7和1.8） 1.4 HashMap需要同时重写hashCode方法和equal" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="HashMap集合">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                                <a href="/" class="navbar-brand">
+                    Today ClashNode
+                </a>
+                
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">关于</a></li>
+                        <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>HashMap集合</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>HashMap集合</h3> <ul> <li><a href="#1_HashMap_1" rel="nofollow">1. HashMap介绍</a></li> <li> <ul> <li><a href="#11_HashMap_2" rel="nofollow">1.1 HashMap的简介</a></li> <li><a href="#12_HashMap1718_9" rel="nofollow">1.2 HashMap的数据结构（1.7和1.8）</a></li> <li><a href="#14_HashMaphashCodeequals_17" rel="nofollow">1.4 HashMap需要同时重写hashCode方法和equals方法的原因？</a></li> </ul> </li> <li><a href="#2_HashMap_41" rel="nofollow">2. HashMap方法原理</a></li> <li> <ul> <li><a href="#21_put_42" rel="nofollow">2.1 put方法</a></li> <li><a href="#22_get_52" rel="nofollow">2.2 get方法</a></li> <li><a href="#23_HashMap_63" rel="nofollow">2.3 HashMap的扩容机制</a></li> </ul> </li> <li><a href="#3_HashMap_84" rel="nofollow">3. HashMap用法简单使用</a></li> </ul> </div> </h1> <h2><a id="11_HashMap_2" rel="nofollow"></a>1.1 HashMap的简介</h2> <ol> <li>HashMap是Map集合接口的子类之一，是常用的Map之一。</li> <li>HashMap是以 key-value 的形式存储数据的。允许key为null，但只允许一个key为null；允许value为null。</li> <li>HahMap中key不能重复，value可以重复。</li> <li>HashMap的初始容量为16，默认加载因子为0.75。</li> <li>HashMap是线程不安全的。</li> </ol> <h2><a id="12_HashMap1718_9" rel="nofollow"></a>1.2 HashMap的数据结构（1.7和1.8）</h2> <p><strong>JDK1.7时的数据结构是 数据 + 链表</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/0f57874e9bfe10b19ce567f1bc38343b.jpg" alt="HashMap集合">当要put数据是，先会计算key的hash值，存放到相应的数组索引位置，如果当前位置没有值，则直接存储；如果当前位置上有值，则调用重写的equals方法比较key，如果相同则覆盖value，如果不同则说明是不同的值则插入到链表的头部</p> <p><strong>JDK1.8时的数据结构是 数据 + 链表 + 红黑树</strong><br /> 在1.8中，hashMap在new的时候不会初始化容量，只有当put的时候才会进行初始化<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/864184505d3712c11939031c83c62044.jpg" alt="HashMap集合">HashMap 在 Java 8 中的实现增加了红黑树，当链表节点达到 8 个的时候，会把链表转换成红黑树，低于 6 个的时候，会退回链表。究其原因是因为当节点过多时，使用红黑树可以更高效的查找到节点。毕竟红黑树是一种二叉查找树。</p> <h2><a id="14_HashMaphashCodeequals_17" rel="nofollow"></a>1.4 HashMap需要同时重写hashCode方法和equals方法的原因？</h2> <pre><code class="prism language-java">hashCode和equals方法是Object中的原生方法<span class="token operator">:</span> equals：比较的是对象的地址值是否相等 hashcode（）：返回的是对象的地址，所以这种情况下不同对象的hashcode肯定不同</code></pre> <p><strong>为什么要重写hashCode方法</strong><br /> hashMap.put(“a”,“123”) ，hashMap.put(“a”,“123”)时；如果不重写hashcode，那么同样的一个键值对 ， 唯一性得不到保证，<strong>所以一定要重写hashCode方法</strong>。因为Object的hashcode返回的是内存地址，可能造成的存储结果如下：</p> <table> <thead> <tr> <th>0</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> </tr> </thead> <tbody> <tr> <td>(“a”,“123”)</td> <td></td> <td>(“a”,“123”)</td> <td></td> <td></td> <td></td> </tr> </tbody> </table> <p><strong>为什么要重写equals方法：</strong><br /> hashMap.put(“a”,“123”) ，hashMap.put(“b”,“123”)时；两次put元素的hash值相同，则会用链表的方式存储，存储形式如下：</p> <table> <thead> <tr> <th>0</th> <th>1</th> <th>2</th> <th>3</th> <th>4</th> <th>5</th> </tr> </thead> <tbody> <tr> <td>(“a”,“123”)</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> <tr> <td>(“a”,“123”)</td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr> </tbody> </table> <p>当要get(“a”)时，会进行hashCode判断，知道去索引为0的位置查找，就会发现有2个元素，此时就无法判断要取出的数据为哪个。<strong>所以必须要重写equals方法才能判断对象的值</strong></p> <p><strong>总结：</strong><br /><strong>hashCode相同，值不一定相同；hashCode不同，值一定不同<br /> hashCode保证键的唯一性，equals保证值的唯一性，所以需要同时重写</strong></p> </h1> <h2><a id="21_put_42" rel="nofollow"></a>2.1 put方法</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220905/5a7ade63a4a043f260eb192220157a53.jpg" alt="HashMap集合"><strong>put的过程：</strong></p> <pre><code>1：对key的hashCode() 做hash计算，然后根据hash值再计算Node的存储索引位置。 2：检查当前数组是否为空，为空就进行初始化，初始化容量为16，默认加载因子为0.75 3：如果没有哈希碰撞，直接放入桶中；如果有哈希碰撞，比较equals方法，判断是否相同，如果相    同则替换value；不同则以链表的形式存入尾部 4：如果哈希碰撞导致链表长度大于8，则将链表转为红黑树 5：当桶数量超过 容量*负载因子 时，就进行扩容，扩容为原数组长度的两倍</code></pre> <h2><a id="22_get_52" rel="nofollow"></a>2.2 get方法</h2> <p>get方法的过程：</p> <pre><code>对 key 的 hashCode() 做 hash 计算，然后根据 hash 值再计算桶的 index 如果桶中的第一个节点命中，直接返回； 如果有冲突，则通过 key.equals(k) 去查找对应的 entry     若为树，则在红黑树中通过 key.equals(k) 查找，O(logn)；     若为链表，则在链表中通过 key.equals(k) 查找，O(n)。</code></pre> <h2><a id="23_HashMap_63" rel="nofollow"></a>2.3 HashMap的扩容机制</h2> <p>数组容量是有限的，数据多次插⼊的，到达⼀定的数量就会进⾏扩容，也就是resize。<br /><strong>影响resize有两个因素：</strong><br /> Capacity：HashMap当前⻓度。<br /> LoadFactor：负载因⼦，默认值0.75f。</p> <pre><code class="prism language-java"><span class="token comment">/**      * The load factor used when none specified in constructor.      */</span><span class="token keyword">static</span><span class="token keyword">final</span><span class="token keyword">float</span> DEFAULT_LOAD_FACTOR<span class="token operator">=</span><span class="token number">0.75f</span><span class="token punctuation">;</span></code></pre> <p>就⽐如当前的容量⼤⼩为100，当你存进第76个的时候，判断发现需要进⾏resize了，那就进⾏扩容。<br /><strong>扩容的步骤</strong><br /> 分为两步<br /> 扩容：创建⼀个新的Entry空数组，⻓度是原数组的2倍。<br /> ReHash：遍历原Entry数组，把所有的Entry重新Hash到新数组。<br /><strong>需要重新Hash的原因：</strong><br /> 是因为⻓度扩⼤以后，Hash的规则也随之改变。<br /> Hash的公式—&gt; index = HashCode（Key） &amp; （Length - 1）</p> </h1> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		HashMap<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span>String<span class="token punctuation">&gt;</span></span> hm<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">HashMap</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span>String<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"it001"</span><span class="token punctuation">,</span><span class="token string">"lh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"it003"</span><span class="token punctuation">,</span><span class="token string">"dc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"it004"</span><span class="token punctuation">,</span><span class="token string">"ch"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"it002"</span><span class="token punctuation">,</span><span class="token string">"dc"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"it001"</span><span class="token punctuation">,</span><span class="token string">"lhh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//键的唯一性</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"it005"</span><span class="token punctuation">,</span><span class="token string">"lh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"dc"</span><span class="token punctuation">,</span><span class="token string">"lh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"中"</span><span class="token punctuation">,</span><span class="token string">"lh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hm<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//输出结果</span><span class="token comment">//{it004=ch, it003=dc, it005=lh, it002=dc, it001=lhh, 中=lh, dc=lh}</span> 		 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hm<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"it001"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//lhh</span> 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hm<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"it002"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//dc</span><span class="token comment">//遍历输出</span> 		Set<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> set<span class="token operator">=</span>hm<span class="token punctuation">.</span><span class="token function">keySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">for</span><span class="token punctuation">(</span>String key<span class="token operator">:</span>set<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		   String value<span class="token operator">=</span>hm<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//键找值</span> 		   System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>key<span class="token operator">+</span><span class="token string">"---"</span><span class="token operator">+</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>允许key为null，但只允许一个key为null；允许value为null。</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">void</span><span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 		HashMap<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span>String<span class="token punctuation">&gt;</span></span> hm<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">HashMap</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span>String<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>null<span class="token punctuation">,</span><span class="token string">"word"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"word"</span><span class="token punctuation">,</span><span class="token string">"word"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"wor"</span><span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span> 		hm<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>null<span class="token punctuation">,</span> null<span class="token punctuation">)</span><span class="token punctuation">;</span> 		 		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hm<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//{null=null, wor=null, word=word}</span><span class="token punctuation">}</span></code></pre> <p><strong>以上就是对HashMap的一个理解，如果有问题感谢提出，一起进步。</strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-43100.htm">南京猫狗领养机构有哪些地址（南京猫猫领养中心）</a></p>
+                                        <p>下一个：<a href="/news/article-43594.htm">请说一下你对分布式锁的理解，以及分布式锁的实现</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20274.htm" title="宠物体外驱虫多久做一次（宠物体外驱虫价格）">宠物体外驱虫多久做一次（宠物体外驱虫价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-clash.htm" title="「10月13日」最高速度18.7M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「10月13日」最高速度18.7M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-shadowrocket-node.htm" title="「11月20日」最高速度19.1M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「11月20日」最高速度19.1M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21638.htm" title="上海宠物中心领养地址查询（上海宠物中心领养地址查询）">上海宠物中心领养地址查询（上海宠物中心领养地址查询）</a></li>
+                        <li class="py-2"><a href="/news/article-44596.htm" title="宠物猫疫苗都有哪些种类（宠物猫疫苗接种时间表）">宠物猫疫苗都有哪些种类（宠物猫疫苗接种时间表）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-v2ray-subscribe.htm" title="「11月15日」最高速度18M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「11月15日」最高速度18M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29052.htm" title="动物疫苗监管部门是哪里监管的（动物疫苗管理法律法规）">动物疫苗监管部门是哪里监管的（动物疫苗管理法律法规）</a></li>
+                        <li class="py-2"><a href="/news/article-19357.htm" title="同安宠物救助站电话 同安宠物救助站电话号码">同安宠物救助站电话 同安宠物救助站电话号码</a></li>
+                        <li class="py-2"><a href="/news/article-38133.htm" title="狗粮利润多少（狗粮成本）">狗粮利润多少（狗粮成本）</a></li>
+                        <li class="py-2"><a href="/news/article-34761.htm" title="使用SpringBoot简单了解Druid的监控系统">使用SpringBoot简单了解Druid的监控系统</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

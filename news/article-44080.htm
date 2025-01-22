@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-44080.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Python实现多元线性回归算法预测房价</title>
+        <meta name="description" content="目录  一、多元线性回归 二、使用excel预估房价 三、python实现预估房价（借助sklearn库） 三、基于统计分析库statsmodels进行线性回归 四、结果分析 五、参考资料     社" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-44080.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="Python实现多元线性回归算法预测房价" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/0c40c46582ea848557dead5c9dc49f7f.webp" />
+        <meta property="og:release_date" content="2025-01-21T09:50:37" />
+    <meta property="og:updated_time" content="2025-01-21T09:50:37" />
+        <meta property="og:description" content="目录  一、多元线性回归 二、使用excel预估房价 三、python实现预估房价（借助sklearn库） 三、基于统计分析库statsmodels进行线性回归 四、结果分析 五、参考资料     社" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python实现多元线性回归算法预测房价">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                                <a href="/" class="navbar-brand">
+                    Today ClashNode
+                </a>
+                
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">关于</a></li>
+                        <!-- Link-->
+                        <li class="nav-item"> <a href="#" class="nav-link">联系</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>Python实现多元线性回归算法预测房价</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>目录</h3> <ul> <li><a href="#_1" rel="nofollow">一、多元线性回归</a></li> <li><a href="#excel_11" rel="nofollow">二、使用excel预估房价</a></li> <li><a href="#pythonsklearn_23" rel="nofollow">三、python实现预估房价（借助sklearn库）</a></li> <li><a href="#statsmodels_150" rel="nofollow">三、基于统计分析库statsmodels进行线性回归</a></li> <li><a href="#_227" rel="nofollow">四、结果分析</a></li> <li><a href="#_229" rel="nofollow">五、参考资料</a></li> </ul> </div> </h1> <blockquote> <p>社会经济现象的变化往往受到多个因素的影响，因此，一般要进行多元回归分析，我们把包括两个或两个以上自变量的回归称为多元线性回归 。<br /> 多元线性回归的基本原理和基本计算过程与一元线性回归相同，但由于自变量个数多，计算相当麻烦，一般在实际中应用时都要借助统计软件。这里只介绍多元线性回归的一些基本问题。<br /> 但由于各个自变量的单位可能不一样，比如说一个消费水平的关系式中，工资水平、受教育程度、职业、地区、家庭负担等等因素都会影响到消费水平，而这些影响因素（自变量）的单位显然是不同的，因此自变量前系数的大小并不能说明该因素的重要程度，更简单地来说，同样工资收入，如果用元为单位就比用百元为单位所得的回归系数要小，但是工资水平对消费的影响程度并没有变，所以得想办法将各个自变量化到统一的单位上来。前面学到的标准分就有这个功能，具体到这里来说，就是将所有变量包括因变量都先转化为标准分，再进行线性回归，此时得到的回归系数就能反映对应自变量的重要程度。这时的回归方程称为标准回归方程，回归系数称为标准回归系数，表示如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/dfb3eb7553bd37793e841624ad4b868a.jpg" alt="Python实现多元线性回归算法预测房价"><br /> 由于都化成了标准分，所以就不再有常数项 a 了，因为各自变量都取平均水平时，因变量也应该取平均水平，而平均水平正好对应标准分 0 ，当等式两端的变量都取 0 时，常数项也就为 0 了。<br /> 多元线性回归与一元线性回归类似，可以用最小二乘法估计模型参数，也需对模型及模型参数进行统计检验 。<br /> 选择合适的自变量是正确进行多元回归预测的前提之一，多元回归模型自变量的选择可以利用变量之间的相关矩阵来解决。</p> </blockquote> </h1> <p>1、打开数据集文件并删除非数据项，方便进行多元线性回归<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/cacf35642b8943a30901aa6c39d697c0.jpg" alt="Python实现多元线性回归算法预测房价"><br /> 2、选择回归数据分析<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/d1ceafb5a2cf2704534a9f9548190245.jpg" alt="Python实现多元线性回归算法预测房价"><br /> 3、选择数据集，导出结果<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/e6f1bae3432c76dd3550b2df044d9d7e.jpg" alt="Python实现多元线性回归算法预测房价"></p> <p>4、结果<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/239f0a63cfd5be55ef46f7888f2915eb.jpg" alt="Python实现多元线性回归算法预测房价"></p> </h1> <p>1、上传数据集到jupyter<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/f128295d8003ac90bdaf995f3ca06117.jpg" alt="Python实现多元线性回归算法预测房价"><br /> 2、导入文件包</p> <pre><code class="prism language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd <span class="token keyword">import</span> numpy <span class="token keyword">as</span> np <span class="token keyword">import</span> seaborn <span class="token keyword">as</span> sns <span class="token keyword">from</span> sklearn <span class="token keyword">import</span> datasets <span class="token keyword">from</span> sklearn<span class="token punctuation">.</span>linear_model <span class="token keyword">import</span> LinearRegression <span class="token keyword">from</span> statsmodels<span class="token punctuation">.</span>formula<span class="token punctuation">.</span>api <span class="token keyword">import</span> ols </code></pre> <p>3、读取数据集数据</p> <pre><code class="prism language-python">df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_csv<span class="token punctuation">(</span><span class="token string">'house_prices.csv'</span><span class="token punctuation">)</span> df<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">#显示列名和数据类型类型</span> df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token comment">#显示前n行，n默认为5</span> </code></pre> <p>4、取出数据</p> <pre><code class="prism language-python"><span class="token comment">#取出自变量</span> data_x<span class="token operator">=</span>df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'area'</span><span class="token punctuation">,</span><span class="token string">'bedrooms'</span><span class="token punctuation">,</span><span class="token string">'bathrooms'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> data_y<span class="token operator">=</span>df<span class="token punctuation">[</span><span class="token string">'price'</span><span class="token punctuation">]</span>  </code></pre> <p>5、进行多元线性回归并得出结果</p> <pre><code class="prism language-python"><span class="token comment"># 进行多元线性回归</span> model<span class="token operator">=</span>LinearRegression<span class="token punctuation">(</span><span class="token punctuation">)</span> l_model<span class="token operator">=</span>model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>data_x<span class="token punctuation">,</span>data_y<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'参数权重'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span>coef_<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'模型截距'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span>intercept_<span class="token punctuation">)</span>  </code></pre> <p>结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/10cdb64bac2d04c35f3b0e920d0d8af6.jpg" alt="Python实现多元线性回归算法预测房价"></p> <ul> <li>进行数据处理<br /> 1、异常值检测</li> </ul> <pre><code class="prism language-python"><span class="token comment"># 异常值处理</span> <span class="token comment"># ================ 异常值检验函数：iqr &amp; z分数 两种方法 =========================</span> <span class="token keyword">def</span> <span class="token function">outlier_test</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> column<span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> z<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token triple-quoted-string string">""" 以某列为依据，使用 上下截断点法 检测异常值(索引) """</span>     <span class="token triple-quoted-string string">"""      full_data: 完整数据     column: full_data 中的指定行，格式 'x' 带引号     return 可选; outlier: 异常值数据框      upper: 上截断点;  lower: 下截断点     method：检验异常值的方法（可选, 默认的 None 为上下截断点法），             选 Z 方法时，Z 默认为 2     """</span>     <span class="token comment"># ================== 上下截断点法检验异常值 ==============================</span>     <span class="token keyword">if</span> method <span class="token operator">==</span> <span class="token boolean">None</span><span class="token punctuation">:</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'以 </span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>column<span class="token punctuation">}</span></span><span class="token string"> 列为依据，使用 上下截断点法(iqr) 检测异常值...'</span></span><span class="token punctuation">)</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'='</span> <span class="token operator">*</span> <span class="token number">70</span><span class="token punctuation">)</span>         <span class="token comment"># 四分位点；这里调用函数会存在异常</span>         column_iqr <span class="token operator">=</span> np<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0.75</span><span class="token punctuation">)</span> <span class="token operator">-</span> np<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0.25</span><span class="token punctuation">)</span>         <span class="token comment"># 1，3 分位数</span>         <span class="token punctuation">(</span>q1<span class="token punctuation">,</span> q3<span class="token punctuation">)</span> <span class="token operator">=</span> np<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0.25</span><span class="token punctuation">)</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>quantile<span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0.75</span><span class="token punctuation">)</span>         <span class="token comment"># 计算上下截断点</span>         upper<span class="token punctuation">,</span> lower <span class="token operator">=</span> <span class="token punctuation">(</span>q3 <span class="token operator">+</span> <span class="token number">1.5</span> <span class="token operator">*</span> column_iqr<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>q1 <span class="token operator">-</span> <span class="token number">1.5</span> <span class="token operator">*</span> column_iqr<span class="token punctuation">)</span>         <span class="token comment"># 检测异常值</span>         outlier <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> lower<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> upper<span class="token punctuation">)</span><span class="token punctuation">]</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'第一分位数: </span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>q1<span class="token punctuation">}</span></span><span class="token string">, 第三分位数：</span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>q3<span class="token punctuation">}</span></span><span class="token string">, 四分位极差：</span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>column_iqr<span class="token punctuation">}</span></span><span class="token string">'</span></span><span class="token punctuation">)</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"上截断点：</span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>upper<span class="token punctuation">}</span></span><span class="token string">, 下截断点：</span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>lower<span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>         <span class="token keyword">return</span> outlier<span class="token punctuation">,</span> upper<span class="token punctuation">,</span> lower     <span class="token comment"># ===================== Z 分数检验异常值 ==========================</span>     <span class="token keyword">if</span> method <span class="token operator">==</span> <span class="token string">'z'</span><span class="token punctuation">:</span>         <span class="token triple-quoted-string string">""" 以某列为依据，传入数据与希望分段的 z 分数点，返回异常值索引与所在数据框 """</span>         <span class="token triple-quoted-string string">"""          params         data: 完整数据         column: 指定的检测列         z: Z分位数, 默认为2，根据 z分数-正态曲线表，可知取左右两端的 2%，            根据您 z 分数的正负设置。也可以任意更改，知道任意顶端百分比的数据集合         """</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'以 </span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>column<span class="token punctuation">}</span></span><span class="token string"> 列为依据，使用 Z 分数法，z 分位数取 </span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>z<span class="token punctuation">}</span></span><span class="token string"> 来检测异常值...'</span></span><span class="token punctuation">)</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'='</span> <span class="token operator">*</span> <span class="token number">70</span><span class="token punctuation">)</span>         <span class="token comment"># 计算两个 Z 分数的数值点</span>         mean<span class="token punctuation">,</span> std <span class="token operator">=</span> np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> np<span class="token punctuation">.</span>std<span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span><span class="token punctuation">)</span>         upper<span class="token punctuation">,</span> lower <span class="token operator">=</span> <span class="token punctuation">(</span>mean <span class="token operator">+</span> z <span class="token operator">*</span> std<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>mean <span class="token operator">-</span> z <span class="token operator">*</span> std<span class="token punctuation">)</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"取 </span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>z<span class="token punctuation">}</span></span><span class="token string"> 个 Z分数：大于 </span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>upper<span class="token punctuation">}</span></span><span class="token string"> 或小于 </span><span class="token interpolation"><span class="token punctuation">{<!-- --></span>lower<span class="token punctuation">}</span></span><span class="token string"> 的即可被视为异常值。"</span></span><span class="token punctuation">)</span>         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'='</span> <span class="token operator">*</span> <span class="token number">70</span><span class="token punctuation">)</span>         <span class="token comment"># 检测异常值</span>         outlier <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> lower<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token punctuation">(</span>data<span class="token punctuation">[</span>column<span class="token punctuation">]</span> <span class="token operator">&gt;=</span> upper<span class="token punctuation">)</span><span class="token punctuation">]</span>         <span class="token keyword">return</span> outlier<span class="token punctuation">,</span> upper<span class="token punctuation">,</span> lower  </code></pre> <p>2、得到异常集并丢弃</p> <pre><code class="prism language-python">outlier<span class="token punctuation">,</span> upper<span class="token punctuation">,</span> lower <span class="token operator">=</span> outlier_test<span class="token punctuation">(</span>data<span class="token operator">=</span>df<span class="token punctuation">,</span> column<span class="token operator">=</span><span class="token string">'price'</span><span class="token punctuation">,</span> method<span class="token operator">=</span><span class="token string">'z'</span><span class="token punctuation">)</span><span class="token comment">#获得异常数据</span> outlier<span class="token punctuation">.</span>info<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> outlier<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> df<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>index<span class="token operator">=</span>outlier<span class="token punctuation">.</span>index<span class="token punctuation">,</span> inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token comment">#丢弃异常数据</span>  </code></pre> <p>3、取出变量</p> <pre><code class="prism language-python"><span class="token comment">#取出自变量</span> data_x<span class="token operator">=</span>df<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'area'</span><span class="token punctuation">,</span><span class="token string">'bedrooms'</span><span class="token punctuation">,</span><span class="token string">'bathrooms'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> data_y<span class="token operator">=</span>df<span class="token punctuation">[</span><span class="token string">'price'</span><span class="token punctuation">]</span>  </code></pre> <p>4、进行多元线性回归并得到结果</p> <pre><code class="prism language-python"><span class="token comment"># 进行多元线性回归</span> model<span class="token operator">=</span>LinearRegression<span class="token punctuation">(</span><span class="token punctuation">)</span> l_model<span class="token operator">=</span>model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>data_x<span class="token punctuation">,</span>data_y<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'参数权重'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span>coef_<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'模型截距'</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>model<span class="token punctuation">.</span>intercept_<span class="token punctuation">)</span>  </code></pre> <p>结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/a6e52fa380d8ac43cdf3a8e7aa5697d6.jpg" alt="Python实现多元线性回归算法预测房价"></p> </h1> <p>1、不使用虚拟变量<br /> 前面已经导入了statsmodels库我们做需要的包，这里直接开始编写</p> <pre><code class="prism language-python"><span class="token comment">#不使用虚拟变量</span> lm <span class="token operator">=</span> ols<span class="token punctuation">(</span><span class="token string">'price ~ area + bedrooms + bathrooms'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>df<span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">)</span> lm<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <p>结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/d9b8336a686a61e73ffdfc123dbc191e.jpg" alt="Python实现多元线性回归算法预测房价"><br /> 可以看到，不设置虚拟变量，这里的这里的相关系数R只有0.626，为了提升相关系数，我们需要设置虚拟变量。<br /> 2、设置虚拟变量再进行线性回归</p> <pre><code class="prism language-python"><span class="token comment"># 设置虚拟变量</span> <span class="token comment"># 以名义变量 neighborhood 街区为例</span> nominal_data <span class="token operator">=</span> df<span class="token punctuation">[</span><span class="token string">'neighborhood'</span><span class="token punctuation">]</span>  <span class="token comment"># 设置虚拟变量</span> dummies <span class="token operator">=</span> pd<span class="token punctuation">.</span>get_dummies<span class="token punctuation">(</span>nominal_data<span class="token punctuation">)</span> dummies<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># pandas 会自动帮你命名</span>  <span class="token comment"># 每个名义变量生成的虚拟变量中，需要各丢弃一个，这里以丢弃C为例</span> dummies<span class="token punctuation">.</span>drop<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span> dummies<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 将结果与原数据集拼接</span> results <span class="token operator">=</span> pd<span class="token punctuation">.</span>concat<span class="token punctuation">(</span>objs<span class="token operator">=</span><span class="token punctuation">[</span>df<span class="token punctuation">,</span> dummies<span class="token punctuation">]</span><span class="token punctuation">,</span> axis<span class="token operator">=</span><span class="token string">'columns'</span><span class="token punctuation">)</span>  <span class="token comment"># 按照列来合并</span> results<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># 对名义变量 style 的处理可自行尝试</span> <span class="token comment"># 再次建模</span> lm <span class="token operator">=</span> ols<span class="token punctuation">(</span><span class="token string">'price ~ area + bedrooms + bathrooms + A + B'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>results<span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">)</span> lm<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span>   </code></pre> <p>结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/029b2ac09222ec1e8d94ceb63251cb0f.jpg" alt="Python实现多元线性回归算法预测房价"><br /> 可以看到相关系数提升到了0.917，但是下面的note中提醒可能存在多元共线性，所以需要检测一下<br /> 3、检测多元共线性因子</p> <pre><code class="prism language-python"><span class="token comment"># 自定义方差膨胀因子的检测公式</span> <span class="token keyword">def</span> <span class="token function">vif</span><span class="token punctuation">(</span>df<span class="token punctuation">,</span> col_i<span class="token punctuation">)</span><span class="token punctuation">:</span>     <span class="token triple-quoted-string string">"""     df: 整份数据     col_i：被检测的列名     """</span>     cols <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>df<span class="token punctuation">.</span>columns<span class="token punctuation">)</span>     cols<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>col_i<span class="token punctuation">)</span>     cols_noti <span class="token operator">=</span> cols     formula <span class="token operator">=</span> col_i <span class="token operator">+</span> <span class="token string">'~'</span> <span class="token operator">+</span> <span class="token string">'+'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>cols_noti<span class="token punctuation">)</span>     r2 <span class="token operator">=</span> ols<span class="token punctuation">(</span>formula<span class="token punctuation">,</span> df<span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>rsquared     <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">.</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">.</span> <span class="token operator">-</span> r2<span class="token punctuation">)</span>     test_data <span class="token operator">=</span> results<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'area'</span><span class="token punctuation">,</span> <span class="token string">'bedrooms'</span><span class="token punctuation">,</span> <span class="token string">'bathrooms'</span><span class="token punctuation">,</span> <span class="token string">'A'</span><span class="token punctuation">,</span> <span class="token string">'B'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> test_data<span class="token punctuation">.</span>columns<span class="token punctuation">:</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token string">'\t'</span><span class="token punctuation">,</span> vif<span class="token punctuation">(</span>df<span class="token operator">=</span>test_data<span class="token punctuation">,</span> col_i<span class="token operator">=</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>  </code></pre> <p>结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/1400afea251169e9ac034b70ab3517da.jpg" alt="Python实现多元线性回归算法预测房价"><br /> 可以看到bedroom和bathroom相关程度较高<br /> 4、消除多元共线性，再进行线性回归</p> <pre><code class="prism language-python"><span class="token comment"># 发现 bedrooms 和 bathrooms 存在强相关性，可能这两个变量是解释同一个问题</span> <span class="token comment"># 果然，bedrooms 和 bathrooms 这两个变量的方差膨胀因子较高，</span>  <span class="token comment"># 也印证了方差膨胀因子大多成对出现的原则，这里我们丢弃膨胀因子较大的 bedrooms 即可</span> lm <span class="token operator">=</span> ols<span class="token punctuation">(</span>formula<span class="token operator">=</span><span class="token string">'price ~ area + bathrooms + A + B'</span><span class="token punctuation">,</span> data<span class="token operator">=</span>results<span class="token punctuation">)</span><span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">)</span> lm<span class="token punctuation">.</span>summary<span class="token punctuation">(</span><span class="token punctuation">)</span>  </code></pre> <p>结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/c83fe23266751de7375ff49fb0f23e2a.jpg" alt="Python实现多元线性回归算法预测房价"><br /> 可以看到R的值降低了0.01</p> </h1> <p>当不进行数据处理的时候用excel得到的结果和使用Python编程得到的结果是一样的，但是进行了数据清理之后得到的结果就变得很不一样了，而消除了共线性之后也使结果变得更加可靠了。</p> </h1> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_46129506/article/details/120954412"  rel="nofollow">jupyter多元线性回归算法预测房价</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/junseven164/article/details/120879712?spm=1001.2014.3001.5501"  rel="nofollow">多元线性回归分析</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://baike.baidu.com/item/%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/10702248?fr=aladdin"  rel="nofollow">多元线性回归算法</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-43594.htm">请说一下你对分布式锁的理解，以及分布式锁的实现</a></p>
+                                        <p>下一个：<a href="/news/article-44081.htm">如何进行动物医院管理工作（如何进行动物医院管理工作）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-clash-node.htm" title="「12月6日」最高速度21.4M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「12月6日」最高速度21.4M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-today-clash-node.htm" title="「1月6日」最高速度21.8M/S，2025年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「1月6日」最高速度21.8M/S，2025年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-clash-node-daily-updates.htm" title="「11月16日」最高速度20.8M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「11月16日」最高速度20.8M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-clash-node-daily-updates.htm" title="「1月12日」最高速度19.8M/S，2025年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「1月12日」最高速度19.8M/S，2025年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe.htm" title="「12月17日」最高速度21.4M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「12月17日」最高速度21.4M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-clash-node.htm" title="「1月21日」最高速度22.3M/S，2025年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接">「1月21日」最高速度22.3M/S，2025年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-shadowrocket-node.htm" title="「12月12日」最高速度20.8M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「12月12日」最高速度20.8M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-43100.htm" title="南京猫狗领养机构有哪些地址（南京猫猫领养中心）">南京猫狗领养机构有哪些地址（南京猫猫领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-42604.htm" title="Carson带你学设计模式：单例模式（Singleton）">Carson带你学设计模式：单例模式（Singleton）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-today-clash-node.htm" title="「10月11日」最高速度20.5M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「10月11日」最高速度20.5M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
