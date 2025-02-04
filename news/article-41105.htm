@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 
 <head>
@@ -9,16 +9,44 @@
     <title>@DateTimeFormat 注解 和 @JsonFormat 注解</title>
         <meta name="description" content="一、背景 &nbsp;平常在web开发过程中，在前后台日期数据的交互过程中，经常会遇到一些问题。实体类里面使用的是java.util.Date类型保存日期数据。而前台向后台传递数据的时候用的是字符串。" />
         <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-41105.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="@DateTimeFormat 注解 和 @JsonFormat 注解" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/a1e9b9028d08b926a557a94308c246d5.webp" />
+        <meta property="og:release_date" content="2025-01-15T09:50:53" />
+    <meta property="og:updated_time" content="2025-01-15T09:50:53" />
+        <meta property="og:description" content="一、背景 &nbsp;平常在web开发过程中，在前后台日期数据的交互过程中，经常会遇到一些问题。实体类里面使用的是java.util.Date类型保存日期数据。而前台向后台传递数据的时候用的是字符串。" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="@DateTimeFormat 注解 和 @JsonFormat 注解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
     <!-- Google fonts - Poppins-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
     <!-- Lightbox-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
     <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
@@ -102,16 +130,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-24871.htm" title="动物在哪打疫苗好（动物在哪打疫苗好一点）">动物在哪打疫苗好（动物在哪打疫苗好一点）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-clash-v2ray-ss-ssr.htm" title="「10月27日」最高速度18.1M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「10月27日」最高速度18.1M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-shadowrocket-node.htm" title="「12月31日」最高速度22.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「12月31日」最高速度22.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-v2ray.htm" title="「12月9日」最高速度20.2M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「12月9日」最高速度20.2M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-34761.htm" title="使用SpringBoot简单了解Druid的监控系统">使用SpringBoot简单了解Druid的监控系统</a></li>
-                        <li class="py-2"><a href="/news/article-32850.htm" title="动物疫苗分几种类型图片（动物疫苗分几种类型图片大全）">动物疫苗分几种类型图片（动物疫苗分几种类型图片大全）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-ssr-node.htm" title="「12月19日」最高速度21.9M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「12月19日」最高速度21.9M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-8-clash-node.htm" title="「1月8日」最高速度20.6M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「1月8日」最高速度20.6M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-39150.htm" title="领养狗狗是怎么回事（领养狗的坏处）">领养狗狗是怎么回事（领养狗的坏处）</a></li>
-                        <li class="py-2"><a href="/news/article-30478.htm" title="哪里卖狗粮便宜又好（哪里能买狗粮）">哪里卖狗粮便宜又好（哪里能买狗粮）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-clash.htm" title="「11月29日」最高速度22.6M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「11月29日」最高速度22.6M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-clash-subscribe.htm" title="「1月19日」最高速度19M/S，2025年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「1月19日」最高速度19M/S，2025年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-node-subscribe.htm" title="「1月15日」最高速度20.6M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接">「1月15日」最高速度20.6M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21192.htm" title="免费领养宠物的app有哪些软件好（领养宠物的软件平台）">免费领养宠物的app有哪些软件好（领养宠物的软件平台）</a></li>
+                        <li class="py-2"><a href="/news/article-26740.htm" title="优瑞派山茶油狗粮是天然粮吗（优瑞派狗粮好吗）">优瑞派山茶油狗粮是天然粮吗（优瑞派狗粮好吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-clash-windows.htm" title="「12月20日」最高速度18M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「12月20日」最高速度18M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe.htm" title="「12月17日」最高速度21.4M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「12月17日」最高速度21.4M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-v2ray.htm" title="「1月24日」最高速度22.9M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「1月24日」最高速度22.9M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29505.htm" title="猫三联一共几针,间隔多久打第二针好呢（猫三联一共几针分几次打完?）">猫三联一共几针,间隔多久打第二针好呢（猫三联一共几针分几次打完?）</a></li>
+                        <li class="py-2"><a href="/news/article-29052.htm" title="动物疫苗监管部门是哪里监管的（动物疫苗管理法律法规）">动物疫苗监管部门是哪里监管的（动物疫苗管理法律法规）</a></li>
                     </ul>
     </div>
 </div>
@@ -123,16 +151,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 
 <head>
@@ -9,16 +9,44 @@
     <title>Python自学笔记（三）深入理解Python变量的数据类型和存储</title>
         <meta name="description" content="  我们知道，python的变量是有类型的，对于python变量的几种数据类型，我们在写python时是必须要有一定的概念的。知道数据类型就要知道变量数据类型怎么存储，可是为什么python的变量不需" />
         <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-22108.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="Python自学笔记（三）深入理解Python变量的数据类型和存储" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/45b57215f053760059432b977f91562c.webp" />
+        <meta property="og:release_date" content="2024-12-06T09:14:20" />
+    <meta property="og:updated_time" content="2024-12-06T09:14:20" />
+        <meta property="og:description" content="  我们知道，python的变量是有类型的，对于python变量的几种数据类型，我们在写python时是必须要有一定的概念的。知道数据类型就要知道变量数据类型怎么存储，可是为什么python的变量不需" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python自学笔记（三）深入理解Python变量的数据类型和存储">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
     <!-- Google fonts - Poppins-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
     <!-- Lightbox-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
     <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
@@ -102,16 +130,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-19814.htm" title="flink内存模型详解与案例">flink内存模型详解与案例</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-7-node-share-links.htm" title="「10月7日」最高速度22.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接">「10月7日」最高速度22.1M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19359.htm" title="最适合穷人养的宠物（穷人养什么宠物）">最适合穷人养的宠物（穷人养什么宠物）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-8-free-v2ray.htm" title="「7月8日」最高速度20.3M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「7月8日」最高速度20.3M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-30478.htm" title="哪里卖狗粮便宜又好（哪里能买狗粮）">哪里卖狗粮便宜又好（哪里能买狗粮）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-26-free-clash.htm" title="「6月26日」最高速度20M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「6月26日」最高速度20M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-ssr-subscribe.htm" title="「12月2日」最高速度18M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「12月2日」最高速度18M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-shadowrocket-node.htm" title="「10月5日」最高速度22.9M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「10月5日」最高速度22.9M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-25-shadowrocket-node.htm" title="「9月25日」最高速度19.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「9月25日」最高速度19.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-clash.htm" title="「12月14日」最高速度23M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「12月14日」最高速度23M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-high-speed-nodes.htm" title="「12月10日」最高速度22.9M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接">「12月10日」最高速度22.9M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27203.htm" title="做狗粮的设备多少钱 做狗粮的设备多少钱一套">做狗粮的设备多少钱 做狗粮的设备多少钱一套</a></li>
+                        <li class="py-2"><a href="/news/article-35964.htm" title="win11系统怎么安装TPM诊断">win11系统怎么安装TPM诊断</a></li>
+                        <li class="py-2"><a href="/news/article-43099.htm" title="开一家宠物店的市场前景（开一家宠物店的市场前景如何）">开一家宠物店的市场前景（开一家宠物店的市场前景如何）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-v2ray.htm" title="「12月9日」最高速度20.2M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「12月9日」最高速度20.2M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40623.htm" title="动物疫苗可以自己打吗现在疫情严重吗知乎（宠物疫苗能自己打吗）">动物疫苗可以自己打吗现在疫情严重吗知乎（宠物疫苗能自己打吗）</a></li>
+                        <li class="py-2"><a href="/news/article-48418.htm" title="动物防疫可以打疫苗吗多少钱一针（动物防疫打针收费吗）">动物防疫可以打疫苗吗多少钱一针（动物防疫打针收费吗）</a></li>
+                        <li class="py-2"><a href="/news/article-23936.htm" title="家用小型饲料颗粒机500元左右能用吗（家用小型饲料颗粒机500元左右能用吗）">家用小型饲料颗粒机500元左右能用吗（家用小型饲料颗粒机500元左右能用吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-free-high-speed-nodes.htm" title="「1月9日」最高速度21.8M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「1月9日」最高速度21.8M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39631.htm" title="猫三联是三针还是一针好（猫三联一针是什么意思）">猫三联是三针还是一针好（猫三联一针是什么意思）</a></li>
                     </ul>
     </div>
 </div>
@@ -123,28 +151,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

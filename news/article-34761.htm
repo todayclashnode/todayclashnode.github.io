@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 
 <head>
@@ -9,16 +9,44 @@
     <title>使用SpringBoot简单了解Druid的监控系统</title>
         <meta name="description" content="Druid 介绍  说起 Druid，大家首先想到的是阿里的 Druid 数据库连接池 Apache Druid 具有以下特点：  亚秒级 OLAP 查询，包括多维过滤、Ad-hoc 的属性分组、快速" />
         <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-34761.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="使用SpringBoot简单了解Druid的监控系统" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/0c40c46582ea848557dead5c9dc49f7f.webp" />
+        <meta property="og:release_date" content="2025-01-02T09:59:53" />
+    <meta property="og:updated_time" content="2025-01-02T09:59:53" />
+        <meta property="og:description" content="Druid 介绍  说起 Druid，大家首先想到的是阿里的 Druid 数据库连接池 Apache Druid 具有以下特点：  亚秒级 OLAP 查询，包括多维过滤、Ad-hoc 的属性分组、快速" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="使用SpringBoot简单了解Druid的监控系统">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
     <!-- Google fonts - Poppins-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
     <!-- Lightbox-->
-    <link rel="stylesheet" href="__ADDON__/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
     <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
     <!-- theme stylesheet-->
     <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
@@ -102,16 +130,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-7-17-free-ssr-subscribe.htm" title="「7月17日」最高速度22.1M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「7月17日」最高速度22.1M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-shadowrocket-node.htm" title="「9月2日」最高速度19.1M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「9月2日」最高速度19.1M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-shadowrocket-node.htm" title="「9月4日」最高速度22.1M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「9月4日」最高速度22.1M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-node-subscribe-links.htm" title="「11月25日」最高速度19.7M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「11月25日」最高速度19.7M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-subscribe-node.htm" title="「12月26日」最高速度21.3M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「12月26日」最高速度21.3M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45579.htm" title="附近领养宠物小狗电话多少（附近的宠物领养）">附近领养宠物小狗电话多少（附近的宠物领养）</a></li>
+                        <li class="py-2"><a href="/news/article-24162.htm" title="狗粮加盟一般多少钱一个月（狗粮加盟厂）">狗粮加盟一般多少钱一个月（狗粮加盟厂）</a></li>
+                        <li class="py-2"><a href="/news/article-19037.htm" title="驱虫药猫多少钱（驱虫药猫多少钱一瓶）">驱虫药猫多少钱（驱虫药猫多少钱一瓶）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-clash-windows.htm" title="「11月7日」最高速度20M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「11月7日」最高速度20M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-shadowrocket-node.htm" title="「12月13日」最高速度20.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「12月13日」最高速度20.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31893.htm" title="上海宠物美容师培训学校哪家好（上海宠物美容师宠物美容培训学校）">上海宠物美容师培训学校哪家好（上海宠物美容师宠物美容培训学校）</a></li>
+                        <li class="py-2"><a href="/news/article-24161.htm" title="SSM框架中实现数据库操作-从零学习SSM框架（3）">SSM框架中实现数据库操作-从零学习SSM框架（3）</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-3-shadowrocket-node.htm" title="「12月3日」最高速度22.6M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「12月3日」最高速度22.6M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-7-13-shadowrocket-node.htm" title="「7月13日」最高速度22.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「7月13日」最高速度22.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-27-clash-v2ray-ss-ssr.htm" title="「9月27日」最高速度18M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「9月27日」最高速度18M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-31892.htm" title="宠物的领养协议是有法律保护的吗为什么呢 宠物的领养协议是有法律保护的吗为什么呢">宠物的领养协议是有法律保护的吗为什么呢 宠物的领养协议是有法律保护的吗为什么呢</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-20-free-clash.htm" title="「6月20日」最高速度21.8M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接">「6月20日」最高速度21.8M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-clash-windows.htm" title="「11月13日」最高速度18.9M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「11月13日」最高速度18.9M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-node-subscribe-links.htm" title="「11月21日」最高速度20.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「11月21日」最高速度20.1M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -123,28 +151,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">16</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
