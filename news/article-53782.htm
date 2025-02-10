@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-53782.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>c# 一些警告的处理方法</title>
+        <meta name="description" content="在使用.Net 6开发程序时，发现多了很多新的警告类型。这里总结一下处理方法。 CS8618 在退出构造函数时，不可为 null 的 属性“Name”必须包含非 null 值 经常遇到的有CS8618" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-53782.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="c# 一些警告的处理方法" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/a24bb66a4ee4114343797725073bb34a.webp" />
+        <meta property="og:release_date" content="2025-02-09T10:05:47" />
+    <meta property="og:updated_time" content="2025-02-09T10:05:47" />
+        <meta property="og:description" content="在使用.Net 6开发程序时，发现多了很多新的警告类型。这里总结一下处理方法。 CS8618 在退出构造函数时，不可为 null 的 属性“Name”必须包含非 null 值 经常遇到的有CS8618" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="c# 一些警告的处理方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                                <span>
+                    Today ClashNode                </span>
+                                </a>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/client.htm" class="nav-link">客户端</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>c# 一些警告的处理方法</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>在使用.Net 6开发程序时，发现多了很多新的警告类型。这里总结一下处理方法。</p> <h2 id="cs8618-在退出构造函数时不可为-null-的-属性name必须包含非-null-值">CS8618 在退出构造函数时，不可为 null 的 属性“Name”必须包含非 null 值</h2> <p>经常遇到的有CS8618警告：如果定义属性可能为空时，在编译时会报这个警告，比如下面的代码：</p> <pre><code>    public class Play     {         public string Name { get; set; }          public Play()         {          }</code></pre> <p>警告如下：<br /> CS8618	在退出构造函数时，不可为 null 的 属性“Name”必须包含非 null 值。请考虑将 属性 声明为可以为 null。<br /> 处理办法是将属性声明为可以为空：</p> <pre><code>    public class Play     {         public string? Name { get; set; }          public Play()         {          }     }</code></pre> <p>或者，给属性设置初始值：</p> <pre><code>    public class Play     {         public string Name { get; set; } = "";          public Play()         {          }     }</code></pre> <p>但遇到下面的情况，这两种办法就不能用了：</p> <pre><code> public class GameSocialDbContext : DbContext { 　　public DbSet&lt;GameMessage&gt; GameMessages { get; set; } 　　public DbSet&lt;Player&gt; Players { get; set; } 　　public GameSocialDbContext(DbContextOptions&lt;GameSocialDbContext&gt; options) : base(options) 　　{ 　　}  }</code></pre> <p>这种情况下，可以将属性设置default!来避免警告：</p> <pre><code>        public DbSet&lt;Game&gt; Games { get; set; } = default!;         public DbSet&lt;Player&gt; Players { get; set; } = default!;</code></pre> <h2 id="cs1998-此异步方法缺少await运算符">CS1998 此异步方法缺少await运算符</h2> <p>这种情况通常出现在重载或者实现某个异步方法时，没有可调用的异步函数。比如下面的方法：</p> <pre><code>        public async Task RemoveAsync(Player player)         {             Players.Remove(player);         }</code></pre> <p>这种情况下，可以在退出前增加 await Task.CompletedTask;来避免警告。<br /> 如果需要返回值，比如：</p> <pre><code>        public async Task&lt;List&lt;Player&gt;&gt; GetAllAsync()         {             return colTemp.AsQueryable&lt;Player&gt;().ToList();         }</code></pre> <p>这时，可以使用await Task.FromResult()作为返回值：</p> <pre><code>        public async Task&lt;List&lt;Player&gt;&gt; GetAllAsync()         {             return await Task.FromResult(colTemp.AsQueryable&lt;Player&gt;().ToList());         }</code></pre> <h2 id="cs8602-解引用可能出现空引用">CS8602 解引用可能出现空引用</h2> <p>如果采用as进行转换，可能出现这个警告：</p> <pre><code> await (handler as IEventHandler).HandleEvent(data);</code></pre> <p>可以改为强制转换：</p> <pre><code> await ((IEventHandler)handler).HandleEvent(data);</code></pre> <p>也可以使用!操作符：</p> <pre><code> await (handler as IEventHandler)!.HandleEvent(data);</code></pre> <p>还可以在调用前判断是否为空，如果为空，抛出异常。</p> <h2 id="cs8603-可能返回null引用">CS8603 可能返回null引用</h2> <p>这种警告多出现在过滤时，比如：</p> <pre><code>        public async Task&lt;Player&gt; GetPlayerByNameAsync(string name)         {             return await gameDbContext.Players                 .Include(p =&gt; p.SentFriendRequests)                 .Include(p =&gt; p.ReceievedFriendRequests).FirstOrDefaultAsync(p =&gt; p.UserName == name);         }</code></pre> <p>由于FirstOrDefault可能返回空值，所以会出现警告。可以改为使用First：</p> <pre><code>        public async Task&lt;Player&gt; GetPlayerByNameAsync(string name)         {             return await gameDbContext.Players                 .Include(p =&gt; p.SentFriendRequests)                 .Include(p =&gt; p.ReceievedFriendRequests).FirstAsync(p =&gt; p.UserName == name);         }</code></pre> <p>或者允许返回值为空：</p> <pre><code>        public async Task&lt;Player?&gt; GetPlayerByNameAsync(string name)         {             return await gameDbContext.Players                 .Include(p =&gt; p.SentFriendRequests)                 .Include(p =&gt; p.ReceievedFriendRequests).FirstOrDefaultAsync(p =&gt; p.UserName == name);         }</code></pre> <p>最后需要说明的是，警告是为了提示程序可能的潜在问题，消除警告时，需要结合具体情况确定使用哪种方式，不要为了去掉警告忽略潜在的问题。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53781.htm">C++学习笔记15-类和对象-C++对象模型和this指针</a></p>
+                                        <p>下一个：<a href="/news/article-54330.htm">农大动物医院营业时间是几点（农大动物医院预约挂号）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-node-subscribe.htm" title="「12月27日」最高速度18.5M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「12月27日」最高速度18.5M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-41106.htm" title="LVGL PC模拟器安装步骤详解_安装教程">LVGL PC模拟器安装步骤详解_安装教程</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-node-share.htm" title="「11月28日」最高速度20.8M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接">「11月28日」最高速度20.8M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28120.htm" title="SpringBoot三种方式实现定时任务">SpringBoot三种方式实现定时任务</a></li>
+                        <li class="py-2"><a href="/news/article-39631.htm" title="猫三联是三针还是一针好（猫三联一针是什么意思）">猫三联是三针还是一针好（猫三联一针是什么意思）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-clash-v2ray-ss-ssr.htm" title="「12月21日」最高速度22.2M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「12月21日」最高速度22.2M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29505.htm" title="猫三联一共几针,间隔多久打第二针好呢（猫三联一共几针分几次打完?）">猫三联一共几针,间隔多久打第二针好呢（猫三联一共几针分几次打完?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-clash-node.htm" title="「1月8日」最高速度20.6M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「1月8日」最高速度20.6M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-clash-v2ray-ss-ssr.htm" title="「11月22日」最高速度19.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「11月22日」最高速度19.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-shadowrocket-node.htm" title="「12月31日」最高速度22.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「12月31日」最高速度22.6M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
