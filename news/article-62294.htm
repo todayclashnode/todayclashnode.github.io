@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-62294.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>如何保证Redis缓存和数据库一致性？</title>
+        <meta name="description" content="首先我们先了解下缓存是什么？ 缓存就是把低速存储的结果，临时保存在高速存储的技术。 为什么使用redis进行缓存数据？ Redis嘛，就是一种运行速度很快，并发很强的跑在内存上的NoSql数据库，支持" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-62294.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="如何保证Redis缓存和数据库一致性？" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/ebd51953f061a0cb3c0fd36685d78b25.webp" />
+        <meta property="og:release_date" content="2025-02-24T09:17:09" />
+    <meta property="og:updated_time" content="2025-02-24T09:17:09" />
+        <meta property="og:description" content="首先我们先了解下缓存是什么？ 缓存就是把低速存储的结果，临时保存在高速存储的技术。 为什么使用redis进行缓存数据？ Redis嘛，就是一种运行速度很快，并发很强的跑在内存上的NoSql数据库，支持" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何保证Redis缓存和数据库一致性？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                                <span>
+                    Today ClashNode                </span>
+                                </a>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/client.htm" class="nav-link">客户端</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>如何保证Redis缓存和数据库一致性？</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><strong>首先我们先了解下缓存是什么？</strong><br /> 缓存就是把低速存储的结果，临时保存在高速存储的技术。</p> <p><strong>为什么使用redis进行缓存数据？</strong></p> <p>Redis嘛，就是一种运行速度很快，并发很强的跑在内存上的NoSql数据库，支持键到五种数据类型的映射，（string、list、set、zset、hash）,而memecache只能支持简单的数据类型。另外redis可以完成一部份数据的持久化，而memecache完全将数据保存在内存中，不进行持久化，如果服务器出问题，数据将全部丢失，另外一个原因是redis底层实现优化比memecache好。另外采用了多路复用io阻塞机制，数据结构简单，操作节省时间。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/09e7d81dd6edd3b78a5a3195766ee6a5.jpg" alt="如何保证Redis缓存和数据库一致性？"></p> <p>那常见的保证缓存与数据库一致的方法有哪些呢？</p> <p>想要保证缓存与数据库的双写一致，一共有4种方式，即4种同步策略：<br /><strong>先更新缓存，再更新数据库；<br /> 先更新数据库，再更新缓存；<br /> 先删除缓存，再更新数据库；<br /> 先更新数据库，再删除缓存。</strong></p> <p>那么我们需要做的就是根据不同的场景来使用合理的方式来解决数据问题。</p> <p><strong>第一种：先删除缓存，再更新数据库</strong></p> <p>在出现失败时可能出现的问题：</p> <p>1：线程A删除缓存成功，线程A更新数据库失败；</p> <p>2 ：线程B从缓存中读取数据；由于缓存被删，进程B无法从缓存中得到数据，进而从数据库读取数据；此时数据库中的数据更新失败，线程B从数据库成功获取旧的数据，然后将数据更新到了缓存。<br /> 最终，缓存和数据库的数据是一致的，但仍然是旧的数据。</p> <p><strong>第二种：先更新数据库，再删除缓存</strong></p> <p>假设这会有两个请求，一个请求A做查询操作，一个请求B做更新操作，那么会有如下情形产生</p> <p>（1）缓存刚好失效<br /> （2）请求A查询数据库，得一个旧值<br /> （3）请求B将新值写入数据库<br /> （4）请求B删除缓存<br /> （5）请求A将查到的旧值写入缓存<br /> 如果发生上述情况，确实是会发生脏数据。<br /> 然而，发生这种情况的概率又有多少呢？<br /> 发生上述情况有一个先天性条件，就是步骤（3）的写数据库操作比步骤（2）的读数据库操作耗时更短，才有可能使得步骤（4）先于步骤（5）。<br /> 数据库的读操作的速度远快于写操作的（不然做读写分离干嘛，做读写分离的意义就是因为读操作比较快，耗资源少），因此步骤（3）耗时比步骤（2）更短，这一情形很难出现。<br /> 先更新数据库，再删缓存依然会有问题，不过，问题出现的可能性会因为上面说的原因，变得比较低。</p> <p><strong>第三种：给所有的缓存一个失效期</strong></p> <p>第三种方案可以说是一个大杀器，任何不一致，都可以靠失效期解决，失效期越短，数据一致性越高。但是失效期越短，查数据库就会越频繁。因此失效期应该根据业务来定。<br /> 1.并发不高的情况：<br /> 读: 读redis-&gt;没有，读mysql-&gt;把mysql数据写回redis，有的话直接从redis中取；<br /> 写: 写mysql-&gt;成功，再写redis；<br /> 2.并发高的情况：<br /> 读: 读redis-&gt;没有，读mysql-&gt;把mysql数据写回redis，有的话直接从redis中取；<br /> 写：异步话，先写入redis的缓存，就直接返回；定期或特定动作将数据保存到mysql，可以做到多次更新，一次保存；</p> <p><strong>第四种：加锁，使线程顺序执行</strong></p> <p>如果一个服务部署到了多个机器，就变成了分布式锁，或者是分布式队列按顺序去操作数据库或者 Redis，带来的副作用就是：数据库本来是并发的，现在变成串行的了，加锁或者排队执行的方案降低了系统性能，所以这个方案看起来不太可行。</p> <p><strong>第五种：采用双删</strong></p> <p>先删除缓存，再更新数据库，当更新数据后休眠一段时间再删除一次缓存。</p> <p>方案推荐两种：</p> <p>1：项目整合quartz等定时任务框架，去实现延时3–5s再去执行最后一步任务 。（推荐使用）<br /> 2：创建线程池，线程池中拿一个线程，线程体中延时3-5s再去执行最后一步任务（不能忘了启动线程）</p> <p><strong>第六种：异步更新缓存(基于订阅binlog的同步机制)</strong></p> <p>MySQL binlog增量订阅消费+消息队列+增量数据更新到redis读Redis</p> <p>热数据基本都在Redis写MySQL:增删改都是操作MySQL更新Redis数据：MySQ的数据操作binlog，来更新到Redis：</p> <p>1)数据操作主要分为两大块：一个是全量(将全部数据一次写入到redis)一个是增量(实时更新)。</p> <p>这里说的是增量,指的是mysql的update、insert、delate变更数据。</p> <p>2)读取binlog后分析 ，利用消息队列,推送更新各台的redis缓存数据。<br /> 这样一旦MySQL中产生了新的写入、更新、删除等操作，就可以把binlog相关的消息推送至Redis，Redis再根据binlog中的记录，对Redis进行更新。<br /> 其实这种机制，很类似MySQL的主从备份机制，因为MySQL的主备也是通过binlog来实现的数据一致性。<br /> 这里可以结合使用canal(阿里的一款开源框架)，通过该框架可以对MySQL的binlog进行订阅，而canal正是模仿了mysql的slave数据库的备份请求，使得Redis的数据更新达到了相同的效果。<br /> 当然，这里的消息推送工具你也可以采用别的第三方：kafka、rabbitMQ等来实现推送更新Redis。</p> <p>以上就是redis和数据库数据保持一致的方案。<br /><strong>微信搜索IT说说公众号，获取更多java技术资源！</strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-61703.htm">中国兽药平台（中国兽药网查询网）</a></p>
+                                        <p>下一个：<a href="/news/article-62295.htm">动物疫苗查询系统怎么查（动物疫苗查询系统怎么查）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-22562.htm" title="做宠物粮食生意好做吗赚钱吗知乎 做宠物粮食生意好做吗赚钱吗知乎">做宠物粮食生意好做吗赚钱吗知乎 做宠物粮食生意好做吗赚钱吗知乎</a></li>
+                        <li class="py-2"><a href="/news/article-47552.htm" title="北京宠爱国际动物医疗机构地址（北京宠爱国际动物医疗机构地址查询）">北京宠爱国际动物医疗机构地址（北京宠爱国际动物医疗机构地址查询）</a></li>
+                        <li class="py-2"><a href="/news/article-25810.htm" title="一元店货源从哪里进货（一元店进货渠道）">一元店货源从哪里进货（一元店进货渠道）</a></li>
+                        <li class="py-2"><a href="/news/article-40623.htm" title="动物疫苗可以自己打吗现在疫情严重吗知乎（宠物疫苗能自己打吗）">动物疫苗可以自己打吗现在疫情严重吗知乎（宠物疫苗能自己打吗）</a></li>
+                        <li class="py-2"><a href="/news/article-49020.htm" title="领养狗狗需要什么条件和手续（宠物领养是免费的吗）">领养狗狗需要什么条件和手续（宠物领养是免费的吗）</a></li>
+                        <li class="py-2"><a href="/news/article-46089.htm" title="动物医院上班怎么样啊工资多少啊（动物医院工作怎么样）">动物医院上班怎么样啊工资多少啊（动物医院工作怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-26271.htm" title="动物疫苗厂家有多少家上市公司 动物疫苗厂家有多少家上市公司呢">动物疫苗厂家有多少家上市公司 动物疫苗厂家有多少家上市公司呢</a></li>
+                        <li class="py-2"><a href="/news/article-41608.htm" title="动物疫苗的种类有哪些图片大全及价格 动物疫苗的种类有哪些图片大全及价格表">动物疫苗的种类有哪些图片大全及价格 动物疫苗的种类有哪些图片大全及价格表</a></li>
+                        <li class="py-2"><a href="/news/article-45091.htm" title="宠物粮食品牌上市公司名单大全 宠物粮食品牌上市公司名单大全图片">宠物粮食品牌上市公司名单大全 宠物粮食品牌上市公司名单大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-40120.htm" title="数据库四大特性及数据库隔离级别（*）">数据库四大特性及数据库隔离级别（*）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
