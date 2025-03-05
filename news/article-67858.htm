@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-67858.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Java中Arrays工具类的使用</title>
+        <meta name="description" content="#Java中Arrays工具类的使用 工具类：工具类里面封装了一些比较好的方法，这些方法有个特点：都被Static修饰 调用方法： 1. 查找： Static int binarySearch(形参)" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-67858.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="Java中Arrays工具类的使用" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/45b57215f053760059432b977f91562c.webp" />
+        <meta property="og:release_date" content="2025-03-05T11:12:15" />
+    <meta property="og:updated_time" content="2025-03-05T11:12:15" />
+        <meta property="og:description" content="#Java中Arrays工具类的使用 工具类：工具类里面封装了一些比较好的方法，这些方法有个特点：都被Static修饰 调用方法： 1. 查找： Static int binarySearch(形参)" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java中Arrays工具类的使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                                <span>
+                    Today ClashNode                </span>
+                                </a>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/client.htm" class="nav-link">客户端</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>Java中Arrays工具类的使用</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>#Java中Arrays工具类的使用</p> <p>工具类：工具类里面封装了一些比较好的方法，这些方法有个特点：都被Static修饰<br /> 调用方法：</p> <p><strong>1. 查找：</strong><br /> Static int binarySearch(形参)=====各种形参不同的方法，返回搜索值的下标<br /><strong>2. 排序：</strong><br /> Static void sort(形参)=========对数组进行排序<br /> （byte[] b,int formIndex,int toIndex）:表示[formIndex，toIndex]，前包后不包<br /><strong>3. 查看：</strong><br /> Static String toString(形参)=====返回数组的字符串表示形式（即打印数组的内容</p> <p><strong><strong>代码</strong>：</strong></p> <pre><code>import java.util.Arrays; public class Demo7Array { 	public static void main(String[] args) { 		int[] arr=new int[] {1,2,3,4,5,765,45,3}; 		//[I@7852e922 		System.out.println(arr); 		System.out.println(Arrays.toString(arr)); 		//====&gt;结果：[1, 2, 3, 4, 5, 765, 45, 3] 		Arrays.sort(arr,5,7);//前包后不包===对下标为5，6进行排序 		System.out.println("排序后"+Arrays.toString(arr)); 		//=====&gt;结果：[1, 2, 3, 4, 5, 45, 765, 3] 		Arrays.sort(arr); 		System.out.println("排序后"+Arrays.toString(arr)); 		System.out.println("查找的下标为"+Arrays.binarySearch(arr, 3)); 		System.out.println("范围查找的下标为"+Arrays.binarySearch(arr,0,5,4)); 	} }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-67220.htm">动物医院主管部门是谁负责（动物医院监管部门）</a></p>
+                                        <p>下一个：<a href="/news/article-67860.htm">动物疫苗接种方法有哪几种 动物疫苗接种方法有哪几种类型</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-54331.htm" title="动物医院门头牌匾图片大全（动物医院牌子图片）">动物医院门头牌匾图片大全（动物医院牌子图片）</a></li>
+                        <li class="py-2"><a href="/news/article-67220.htm" title="动物医院主管部门是谁负责（动物医院监管部门）">动物医院主管部门是谁负责（动物医院监管部门）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-clash.htm" title="「1月29日」最高速度21M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「1月29日」最高速度21M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38133.htm" title="狗粮利润多少（狗粮成本）">狗粮利润多少（狗粮成本）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-shadowrocket-node.htm" title="「2月25日」最高速度22.4M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「2月25日」最高速度22.4M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35477.htm" title="动物疫苗多少钱打一次到哪打呢英语怎么说（动物疫苗一般在哪里打）">动物疫苗多少钱打一次到哪打呢英语怎么说（动物疫苗一般在哪里打）</a></li>
+                        <li class="py-2"><a href="/news/article-67860.htm" title="动物疫苗接种方法有哪几种 动物疫苗接种方法有哪几种类型">动物疫苗接种方法有哪几种 动物疫苗接种方法有哪几种类型</a></li>
+                        <li class="py-2"><a href="/news/article-40623.htm" title="动物疫苗可以自己打吗现在疫情严重吗知乎（宠物疫苗能自己打吗）">动物疫苗可以自己打吗现在疫情严重吗知乎（宠物疫苗能自己打吗）</a></li>
+                        <li class="py-2"><a href="/news/article-64702.htm" title="Token验证JWT方法">Token验证JWT方法</a></li>
+                        <li class="py-2"><a href="/news/article-44596.htm" title="宠物猫疫苗都有哪些种类（宠物猫疫苗接种时间表）">宠物猫疫苗都有哪些种类（宠物猫疫苗接种时间表）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
