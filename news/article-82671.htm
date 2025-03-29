@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-82671.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Java 面试之线程与锁</title>
+        <meta name="description" content="  进程是操作系统分配资源的最小单元，线程是操作系统调度的最小单元。一个进程一般包括多个线程，这些线程共享本进程的内存和资源。  线程的状态   实现线程的几种方式  继承Thread类创建线程 实现" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-82671.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="Java 面试之线程与锁" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/268c6fb6b397dee3eb599d4f754b5a8f.webp" />
+        <meta property="og:release_date" content="2025-03-27T08:15:43" />
+    <meta property="og:updated_time" content="2025-03-27T08:15:43" />
+        <meta property="og:description" content="  进程是操作系统分配资源的最小单元，线程是操作系统调度的最小单元。一个进程一般包括多个线程，这些线程共享本进程的内存和资源。  线程的状态   实现线程的几种方式  继承Thread类创建线程 实现" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 面试之线程与锁">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                                <span>
+                    Today ClashNode                </span>
+                                </a>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/client.htm" class="nav-link">客户端</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>Java 面试之线程与锁</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> </h1> <p>  <strong>进程是操作系统分配资源的最小单元，线程是操作系统调度的最小单元</strong>。一个进程一般包括多个线程，这些线程共享本进程的内存和资源。</p> <h2> <a id="_2" rel="nofollow"></a>线程的状态</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230119/00cd5f7a03444a112b7a78257aacba99.jpg" alt="Java 面试之线程与锁"></p> <h2> <a id="_4" rel="nofollow"></a>实现线程的几种方式</h2> <ul> <li>继承Thread类创建线程</li> <li>实现Runnable接口创建线程</li> <li>实现Callable接口创建新线程(可用Future返回结果)</li> </ul> <h2> <a id="ThreadLocal_9" rel="nofollow"></a>ThreadLocal</h2> <p>  设计理念是为了减少同一个线程内多个函数或者组件之间一些公共变量的传递的复杂度。作用是提供线程内部的局部变量，这些变量在多线程环境下访问(get/set)时能保证与其它线程里的变量相对独立。打个比方，多人(多个线程)使用自己的交通卡(线程私有变量)乘公交转地铁(两个函数)。<br />   注意：使用 ThreadLocal 时要保证能够管理它的创建、销毁，否则会出问题。因为 ThreadLocal 是和 Thread 绑定的，如果 Thread 是从 ThreadPool 中拿出来的，那么意味着 Thread 可能会被复用。如果被复用，你就一定得保证这个 Thread 上一次结束的时候，其关联的 ThreadLocal 被清空掉，否则就会串到下一次使用。</p> <blockquote></blockquote></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82670.htm">用RxJS和react开发mac地址输入框</a></p>
+                                        <p>下一个：<a href="/news/article-83389.htm">免费领养狗狗正规网站平台有哪些软件可以下载（免费领养狗狗app）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-57662.htm" title="猫瘟打针（猫瘟打针几天可以停）">猫瘟打针（猫瘟打针几天可以停）</a></li>
+                        <li class="py-2"><a href="/news/article-83390.htm" title="人用针剂和兽用针剂有什么区别（兽用注射器和人用注射器有什么区别）">人用针剂和兽用针剂有什么区别（兽用注射器和人用注射器有什么区别）</a></li>
+                        <li class="py-2"><a href="/news/article-54874.htm" title="养布偶挣钱吗（养布偶一年能赚多少钱）">养布偶挣钱吗（养布偶一年能赚多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-free-node-subscribe.htm" title="「3月27日」最高速度21.1M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「3月27日」最高速度21.1M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-node-subscribe-links.htm" title="「2月17日」最高速度18.2M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接">「2月17日」最高速度18.2M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35477.htm" title="动物疫苗多少钱打一次到哪打呢英语怎么说（动物疫苗一般在哪里打）">动物疫苗多少钱打一次到哪打呢英语怎么说（动物疫苗一般在哪里打）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-v2ray.htm" title="「1月7日」最高速度22.6M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接">「1月7日」最高速度22.6M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46580.htm" title="宠物粮市场前景怎么样啊知乎（宠物粮好卖吗）">宠物粮市场前景怎么样啊知乎（宠物粮好卖吗）</a></li>
+                        <li class="py-2"><a href="/news/article-55977.htm" title="（九）C++对象模型和this指针基础">（九）C++对象模型和this指针基础</a></li>
+                        <li class="py-2"><a href="/news/article-65921.htm" title="动物疫苗规定几岁打最好（动物打预防针多少钱）">动物疫苗规定几岁打最好（动物打预防针多少钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
