@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-89113.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pyhton深度学习基于pytorch——创建Tensor和修改Tensor形状</title>
+        <meta name="description" content="如果对Tensor的概念理解不清楚请参考我的上一篇文章。 先介绍Tensor的.add()和.add_()方法： 1）不修改自身数据，如x.add(y),x的数据不变，返回一个新的tensor。 （2" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-89113.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="pyhton深度学习基于pytorch——创建Tensor和修改Tensor形状" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/c3492b78b904f8cccc5f4e0c2860afc4.webp" />
+        <meta property="og:release_date" content="2025-04-05T08:20:10" />
+    <meta property="og:updated_time" content="2025-04-05T08:20:10" />
+        <meta property="og:description" content="如果对Tensor的概念理解不清楚请参考我的上一篇文章。 先介绍Tensor的.add()和.add_()方法： 1）不修改自身数据，如x.add(y),x的数据不变，返回一个新的tensor。 （2" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="pyhton深度学习基于pytorch——创建Tensor和修改Tensor形状">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                                <span>
+                    Today ClashNode                </span>
+                                </a>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/client.htm" class="nav-link">客户端</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>pyhton深度学习基于pytorch——创建Tensor和修改Tensor形状</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>如果对Tensor的概念理解不清楚请参考我的上一篇文章。</p> <p>先介绍Tensor的.add()和.add_()方法：</p> <p>1）不修改自身数据，如x.add(y),x的数据不变，返回一个新的tensor。<br /> （2）修改自身数据，如x.add_(y)(运行符带下划线后缀)，运算结果存在x中，x被修改。</p> <pre><code class="language-python">import torch   x=torch.tensor([1,2]) y=torch.tensor([3,4]) z=x.add(y) print(z) print(x) x.add_(y) print(x)</code></pre> <p>运行结果：<br /> tensor([4, 6])<br /> tensor([1, 2])<br /> tensor([4, 6])&nbsp;</p> <h2>一、创建Tensor</h2> <pre><code class="language-python">import torch #根据list数据生成tensor aa=torch.Tensor([1,2,3,4,5,6]) print(aa) #tensor([1., 2., 3., 4., 5., 6.]) #根据指定形状生成tensor bb=torch.Tensor(2,3) print(bb) # tensor([[0., 0., 0.], #         [0., 0., 0.]]) #根据给定的tensor的形状 t=torch.Tensor([[1,2,3],[4,5,6]]) #查看tensor的形状 t.size() #shape与size()等价方式 t.shape #根据已有形状创建tensor cc=torch.Tensor(t.size()) print(cc) # tensor([[8.4490e-39, 9.6429e-39, 9.2755e-39], #         [1.0286e-38, 9.0919e-39, 8.9082e-39]])  #根据一定规则，自动生成tensor的一些例子。  # 生成一个单位矩阵 a=torch.eye(2, 2) print(a) # tensor([[1., 0.], #         [0., 1.]]) # 自动生成全是0的矩阵 b=torch.zeros(2, 3) print(b) # tensor([[0., 0., 0.], #         [0., 0., 0.]]) # 根据规则生成数据 c=torch.linspace(1, 10, 4) print(c) #tensor([ 1.,  4.,  7., 10.]) # 生成满足均匀分布随机数 d=torch.rand(2, 3) print(d) # tensor([[0.0198, 0.5116, 0.3734], #         [0.0397, 0.4600, 0.7310]]) # 生成满足标准分布随机数 f=torch.randn(2, 3) print(f) # tensor([[ 0.7431, -1.1317, -0.0973], #         [ 0.1756,  0.2788,  0.2570]]) # 返回所给数据形状相同，值全为0的张量 e=torch.zeros_like(torch.rand(2, 3)) print(e) # tensor([[0., 0., 0.], #         [0., 0., 0.]])</code></pre> <p><span style="color:#ed7976;">创建的tensor中的数据都是float。</span></p> <p>创建tensor使用了tensor()和Tensor()两种方法。</p> <p><span style="background-color:#fe2c24;">注意torch.Tensor与torch.tensor的几点区别</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;①torch.Tensor是torch.empty和torch.tensor之间的一种混合，但是，当传入数据时，torch.Tensor使用全局默认dtype（FloatTensor），torch.tensor从数据中推断数据类型。<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;②torch.tensor(1)返回一个固定值1，而torch.Tensor(1)返回一个大小为1的张量，它是随机初始化的值。</p> <pre><code class="language-python">import torch t1=torch.Tensor(1) t2=torch.tensor(1) print("t1的值{},t1的数据类型{}".format(t1,t1.type())) print("t2的值{},t2的数据类型{}".format(t2,t2.type()))</code></pre> <p>结果：</p> <p>t1的值tensor([3.5731e-20]),t1的数据类型torch.FloatTensor<br /> t2的值1,t2的数据类型torch.LongTensor</p> <p><span style="background-color:#fe2c24;">3.5731e-20是随机生成的大小为1的张量。</span></p> <h2>二、修改Tensor形状</h2> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221228/39f66730541720daa47de8927fe16426.jpg"></p> <pre><code class="language-python">import torch  #coco # 生成一个形状为2x3的矩阵 torch.manual_seed(1) x = torch.randn(2, 3) print(x) # tensor([[ 0.6614,  0.2669,  0.0617], #         [ 0.6213, -0.4519, -0.1661]]) # 查看矩阵的形状 x.size()  # 结果为torch.Size([2, 3]) # 查看x的维度 x.dim()  # 结果为2 # 把x变为3x2的矩阵 x.view(3, 2) # 把x展平为1维向量 y = x.view(-1) print(y) # tensor([ 0.6614,  0.2669,  0.0617,  0.6213, -0.4519, -0.1661]) y.shape print(y.shape) # 添加一个维度 z = torch.unsqueeze(y, 0) #输出是6 # 查看z的形状 z.size()  # 结果为torch.Size([1, 6]) # 计算Z的元素个数 z.numel()  # 结果为6</code></pre> <p><span style="color:#fe2c24;">【说明】torch.view与torch.reshpae的异同</span><br /> ①reshape()可以由torch.reshape(),也可由torch.Tensor.reshape()调用。view()只可由torch.Tensor.view()来调用。<br /> ②对于一个将要被view的Tensor，新的size必须与原来的size与stride兼容。否则，在view之前必须调用contiguous()方法。<br /> ③同样也是返回与input数据量相同，但形状不同的tensor。若满足view的条件，则不会copy，若不满足，则会copy<br /> ④<span style="color:#ed7976;">如果您只想重塑张量，请使用torch.reshape。 如果您还关注内存使用情况并希望确保两个张量共享相同的数据，请使用torch.view。</span></p> <p><u>使用contiguous()&nbsp;</u><br /> 如果想要断开这两个变量之间的依赖（x本身是contiguous的），就要使用contiguous()针对x进行变化，感觉上就是我们认为的深拷贝。</p> <p>&nbsp;当调用contiguous()时，会强制拷贝一份tensor，让它的布局和从头创建的一模一样，但是两个tensor完全没有联系。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88388.htm">动物的疫苗多少钱一针打几针啊（动物的疫苗多少钱一针打几针啊）</a></p>
+                                        <p>下一个：<a href="/news/article-89114.htm">动物疫苗生产厂家排名前十名有哪些呢 动物疫苗生产厂家排名前十名有哪些呢图片</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-65921.htm" title="动物疫苗规定几岁打最好（动物打预防针多少钱）">动物疫苗规定几岁打最好（动物打预防针多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-88388.htm" title="动物的疫苗多少钱一针打几针啊（动物的疫苗多少钱一针打几针啊）">动物的疫苗多少钱一针打几针啊（动物的疫苗多少钱一针打几针啊）</a></li>
+                        <li class="py-2"><a href="/news/article-78508.htm" title="58同城比特犬买卖（比特犬五百到一千出售）">58同城比特犬买卖（比特犬五百到一千出售）</a></li>
+                        <li class="py-2"><a href="/news/article-76461.htm" title="广州宠物领养网免费地址电话是多少（广州宠物领养平台）">广州宠物领养网免费地址电话是多少（广州宠物领养平台）</a></li>
+                        <li class="py-2"><a href="/news/article-65922.htm" title="宠物鸟交易吧（宠物鸟交易平台）">宠物鸟交易吧（宠物鸟交易平台）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-free-node-subscribe-links.htm" title="「3月22日」最高速度23M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接">「3月22日」最高速度23M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-node-share.htm" title="「3月30日」最高速度18.1M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「3月30日」最高速度18.1M/S，2025年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-77822.htm" title="动物疫苗发展历史（疫苗的发展历史和发展前景）">动物疫苗发展历史（疫苗的发展历史和发展前景）</a></li>
+                        <li class="py-2"><a href="/news/article-74436.htm" title="字符串或数字中应该包含多少位数字，以便MySQL可以将其指定为日期值？">字符串或数字中应该包含多少位数字，以便MySQL可以将其指定为日期值？</a></li>
+                        <li class="py-2"><a href="/news/article-84809.htm" title="动物医院介绍文案 动物医院介绍文案怎么写">动物医院介绍文案 动物医院介绍文案怎么写</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
