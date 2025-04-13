@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-92804.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Spring Cloud Feign源 FeignRibbonClientAutoConfiguration自动装配</title>
+        <meta name="description" content="目录 FeignRibbonClientAutoConfiguration 1、FeignHttpClientProperties加载配置项 2、CachingSpringLoadBalancerFa" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-92804.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="Spring Cloud Feign源 FeignRibbonClientAutoConfiguration自动装配" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/e16f6d988548fc12be9b69962f4cf6e9.webp" />
+        <meta property="og:release_date" content="2025-04-10T08:18:58" />
+    <meta property="og:updated_time" content="2025-04-10T08:18:58" />
+        <meta property="og:description" content="目录 FeignRibbonClientAutoConfiguration 1、FeignHttpClientProperties加载配置项 2、CachingSpringLoadBalancerFa" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Cloud Feign源 FeignRibbonClientAutoConfiguration自动装配">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                                <span>
+                    Today ClashNode                </span>
+                                </a>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/client.htm" class="nav-link">客户端</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>Spring Cloud Feign源 FeignRibbonClientAutoConfiguration自动装配</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><strong>目录</strong></p> <p id="FeignRibbonClientAutoConfiguration-toc" style="margin-left:40px;"><a href="#FeignRibbonClientAutoConfiguration" rel="nofollow">FeignRibbonClientAutoConfiguration</a></p> <p id="1%E3%80%81FeignHttpClientProperties%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E9%A1%B9-toc" style="margin-left:80px;"><a href="#1%E3%80%81FeignHttpClientProperties%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E9%A1%B9" rel="nofollow">1、FeignHttpClientProperties加载配置项</a></p> <p id="2%E3%80%81CachingSpringLoadBalancerFactory-toc" style="margin-left:80px;"><a href="#2%E3%80%81CachingSpringLoadBalancerFactory" rel="nofollow">2、CachingSpringLoadBalancerFactory</a></p> <p id="3%E3%80%81%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%9A%84%40FeignClient%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%92%8C%E8%B0%83%E7%94%A8%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4-toc" style="margin-left:80px;"><a href="#3%E3%80%81%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%9A%84%40FeignClient%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%92%8C%E8%B0%83%E7%94%A8%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4" rel="nofollow">3、配置默认的@FeignClient的连接和调用超时时间</a></p> <p id="Feign%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E7%8E%B0-toc" style="margin-left:40px;"><a href="#Feign%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E7%8E%B0" rel="nofollow">Feign客户端实现</a></p> <p id="1%E3%80%81HttpClientFeignLoadBalancedConfiguration-toc" style="margin-left:80px;"><a href="#1%E3%80%81HttpClientFeignLoadBalancedConfiguration" rel="nofollow">1、HttpClientFeignLoadBalancedConfiguration</a></p> <p id="2%E3%80%81OkHttpFeignLoadBalancedConfiguration-toc" style="margin-left:80px;"><a href="#2%E3%80%81OkHttpFeignLoadBalancedConfiguration" rel="nofollow">2、OkHttpFeignLoadBalancedConfiguration</a></p> <p id="3%E3%80%81DefaultFeignLoadBalancedConfiguration-toc" style="margin-left:80px;"><a href="#3%E3%80%81DefaultFeignLoadBalancedConfiguration" rel="nofollow">3、DefaultFeignLoadBalancedConfiguration</a></p> <p id="%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8BFeignAutoConfiguration-toc" style="margin-left:40px;"><a href="#%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8BFeignAutoConfiguration" rel="nofollow">FeignAutoConfiguration</a></p> <hr id="hr-toc"/> <p>&nbsp; &nbsp; 随着Spring Boot项目的启动，会进行自动装配加载，当我们添加了spring-cloud-starter-openfeign启动maven依赖后，则会加载自动装配项如下：</p> <p style="text-align:center;"><img fetchpriority="high" decoding="async" alt="" height="139" src="http://img.555519.xyz/uploads3/20220602/6d8e8e8cd9f6737b6455e2dd0ff32ea6.jpg"></p> <p>&nbsp; &nbsp; 则会自动装配<strong><span style="color:#f33b45;">FeignRibbonClientAutoConfiguration</span></strong>和<strong><span style="color:#f33b45;">FeignAutoConfiguration</span></strong>类型，但是在FeignRibbonClientAutoConfiguration的类注解上则有@AutoConfigureBefore(FeignAutoConfiguration.class)，即优于<strong><span style="color:#f33b45;">FeignAutoConfiguration</span></strong>进行加载。</p> <h2 id="FeignRibbonClientAutoConfiguration"><strong><span style="color:#f33b45;">FeignRibbonClientAutoConfiguration</span></strong></h2> <pre><code class="language-java">// 1、ILoadBalancer和Feign类存在才加载该Bean FeignRibbonClientAutoConfiguration @ConditionalOnClass({ ILoadBalancer.class, Feign.class }) @Configuration // 2、当前的FeignRibbonClientAutoConfiguration先于FeignAutoConfiguration加载 @AutoConfigureBefore(FeignAutoConfiguration.class) // 3、加载配置FeignHttpClientProperties的属性 @EnableConfigurationProperties({ FeignHttpClientProperties.class }) // 4、有顺序的加载HttpClient、okhttp类型（前提【都】是引入了包和启动配置）、最后优先级是加载默认项，后面详细分析该部分 @Import({ HttpClientFeignLoadBalancedConfiguration.class, 		OkHttpFeignLoadBalancedConfiguration.class, 		DefaultFeignLoadBalancedConfiguration.class }) public class FeignRibbonClientAutoConfiguration {  	// 5、加载CachingSpringLoadBalancerFactory类型Bean，前提是没有类RetryTemplate，该需要单独引入Spring-retry的maven依赖 	@Bean 	@Primary 	@ConditionalOnMissingBean 	@ConditionalOnMissingClass("org.springframework.retry.support.RetryTemplate") 	public CachingSpringLoadBalancerFactory cachingLBClientFactory( 			SpringClientFactory factory) { 		return new CachingSpringLoadBalancerFactory(factory); 	}  	// 6、加载CachingSpringLoadBalancerFactory类型Bean，前提是存在类RetryTemplate，该需要单独引入Spring-retry的maven依赖 	@Bean 	@Primary 	@ConditionalOnMissingBean 	@ConditionalOnClass(name = "org.springframework.retry.support.RetryTemplate") 	public CachingSpringLoadBalancerFactory retryabeCachingLBClientFactory( 			SpringClientFactory factory, LoadBalancedRetryFactory retryFactory) { 		return new CachingSpringLoadBalancerFactory(factory, retryFactory); 	}  	// 7、加载全局的默认@FeignClient的连接和读取超时配置 	@Bean 	@ConditionalOnMissingBean 	public Request.Options feignRequestOptions() { 		return LoadBalancerFeignClient.DEFAULT_OPTIONS; 	} }</code></pre> <pre><code class="language-html">1、ILoadBalancer和Feign类存在才加载该Bean FeignRibbonClientAutoConfiguration 2、当前的FeignRibbonClientAutoConfiguration先于FeignAutoConfiguration加载 3、加载配置FeignHttpClientProperties的属性 4、有顺序的加载HttpClient、okhttp类型（前提【都】是引入了包和启动配置）、优先级最低的是加载默认项 5、加载CachingSpringLoadBalancerFactory类型Bean，前提是没有类RetryTemplate，该需要单独引入Spring-retry的maven依赖 6、加载CachingSpringLoadBalancerFactory类型Bean，前提是存在类RetryTemplate，该需要单独引入Spring-retry的maven依赖 7、加载全局的默认@FeignClient的连接和读取超时配置</code></pre> <h3 id="1%E3%80%81FeignHttpClientProperties%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E9%A1%B9">1、FeignHttpClientProperties加载配置项</h3> <pre><code class="language-java">@ConfigurationProperties(prefix = "feign.httpclient") public class FeignHttpClientProperties {  }</code></pre> <p>&nbsp; &nbsp; 加载http client相关的配置项，需要配置后面的HttpClientFeignLoadBalancedConfiguration进行分析。</p> <h3 id="2%E3%80%81CachingSpringLoadBalancerFactory">2、CachingSpringLoadBalancerFactory</h3> <p>&nbsp; &nbsp; 缓存的负载均衡调用工厂非常重要，他提供了两个构造函数，<span style="color:#e579b6;"><strong>SpringClientFactory</strong></span>类型，以及看我们是否添加了Spring-Retry的maven依赖，有则可以对服务的调用增加失败重试机制，否则直接走降级。所以当前使用的是构造函数依赖注入的方式，则需要关注在其他地方注入的<span style="color:#e579b6;"><strong>SpringClientFactory</strong></span>类型的Bean。使用的地方后续服务调用时再分析。</p> <h3 id="3%E3%80%81%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E7%9A%84%40FeignClient%E7%9A%84%E8%BF%9E%E6%8E%A5%E5%92%8C%E8%B0%83%E7%94%A8%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4">3、配置默认的@FeignClient的连接和调用超时时间</h3> <pre><code class="language-java">@Bean @ConditionalOnMissingBean public Request.Options feignRequestOptions() {     return LoadBalancerFeignClient.DEFAULT_OPTIONS; }</code></pre> <p>&nbsp; &nbsp; 如果其他地方没有注入该值，即我们没有使用yml、properties设置超时时间则会为服务调用设置超时时间，并且FeignClientFactoryBean#getObject过程会发现，配置项适用于所有的@FeignClient项。</p> <pre><code class="language-java">public class LoadBalancerFeignClient implements Client {  	static final Request.Options DEFAULT_OPTIONS = new Request.Options();      public static class Options {      private final int connectTimeoutMillis;     private final int readTimeoutMillis;     private final boolean followRedirects;      public Options(int connectTimeoutMillis, int readTimeoutMillis, boolean followRedirects) {       this.connectTimeoutMillis = connectTimeoutMillis;       this.readTimeoutMillis = readTimeoutMillis;       this.followRedirects = followRedirects;     }      public Options(int connectTimeoutMillis, int readTimeoutMillis) {       this(connectTimeoutMillis, readTimeoutMillis, true);     }      public Options() {       this(10 * 1000, 60 * 1000);     } }</code></pre> <p>&nbsp; &nbsp; 所以默认的链接超时是<span style="color:#f33b45;">1秒</span>，读取超时是<span style="color:#f33b45;">60秒</span></p> <h2 id="Feign%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%AE%9E%E7%8E%B0">Feign客户端实现</h2> <p>&nbsp;先看看Feign的Client【客户端】即真正调用远程服务的接口：</p> <pre><code class="language-java">public interface Client {    Response execute(Request request, Options options) throws IOException; }</code></pre> <p>&nbsp; &nbsp; 定义了真的调用的Http请求的过程，其中Options类型，上面已经见过了，配置了超时时间。其子类按照<strong><span style="color:#e579b6;">优先级</span></strong>有：</p> <p><span style="color:#86ca5e;"><strong>ApacheHttpClient</strong></span>：优先级最高使用的是Apache的<strong><span style="color:#f33b45;">HttpClient</span></strong>线程池实现，前提是引入<span style="color:#7c79e5;"><strong>feign-httpclient</strong></span>依赖</p> <p><span style="color:#86ca5e;"><strong>OkHttpClient</strong></span>：使用<span style="color:#f33b45;"><strong>OkHttp</strong></span>线程池实现，需要引入<strong><span style="color:#7c79e5;">feign-okhttp</span></strong>依赖</p> <p><span style="color:#86ca5e;"><strong>Client.Default</strong></span>：使用默认的<span style="color:#f33b45;"><strong>HttpURLConnnection</strong></span>连接池，但是性能比较低，特别是访问路径中存在{}占位符等</p> <p><span style="color:#86ca5e;"><strong>LoadBalancerFeignClient</strong></span>：使用装饰器模式，对上面的类型进行包装，因为不论是否那种方式的连接池，最后调用服务时都需要负载均衡策略</p> <p>还是从上面的注解开始：</p> <pre><code class="language-java">@Import({ HttpClientFeignLoadBalancedConfiguration.class, 		OkHttpFeignLoadBalancedConfiguration.class, 		DefaultFeignLoadBalancedConfiguration.class })</code></pre> <h3 id="1%E3%80%81HttpClientFeignLoadBalancedConfiguration">1、HttpClientFeignLoadBalancedConfiguration</h3> <p>&nbsp; &nbsp; 对应上面的<span style="color:#86ca5e;"><strong>ApacheHttpClient</strong></span>类型客户端，需要引入maven依赖，如：</p> <pre><code class="language-html">&lt;dependency&gt;     &lt;groupId&gt;io.github.openfeign&lt;/groupId&gt;     &lt;artifactId&gt;feign-httpclient&lt;/artifactId&gt;     &lt;version&gt;9.5.0&lt;/version&gt; &lt;/dependency&gt;</code></pre> <pre><code class="language-java">@Configuration @ConditionalOnClass(ApacheHttpClient.class) @ConditionalOnProperty(value = "feign.httpclient.enabled", matchIfMissing = true) class HttpClientFeignLoadBalancedConfiguration {  	@Bean 	@ConditionalOnMissingBean(Client.class) 	public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory, 							  SpringClientFactory clientFactory, HttpClient httpClient) { 		ApacheHttpClient delegate = new ApacheHttpClient(httpClient); 		return new LoadBalancerFeignClient(delegate, cachingFactory, clientFactory); 	}  	@Configuration 	@ConditionalOnMissingBean(CloseableHttpClient.class) 	protected static class HttpClientFeignConfiguration {  		private final Timer connectionManagerTimer = new Timer( 				"FeignApacheHttpClientConfiguration.connectionManagerTimer", true);  		private CloseableHttpClient httpClient;  		@Autowired(required = false) 		private RegistryBuilder registryBuilder;  		@Bean 		@ConditionalOnMissingBean(HttpClientConnectionManager.class) 		public HttpClientConnectionManager connectionManager( 				ApacheHttpClientConnectionManagerFactory connectionManagerFactory, 				FeignHttpClientProperties httpClientProperties) { 			final HttpClientConnectionManager connectionManager = connectionManagerFactory 					.newConnectionManager(httpClientProperties.isDisableSslValidation(), 							httpClientProperties.getMaxConnections(), 							httpClientProperties.getMaxConnectionsPerRoute(), 							httpClientProperties.getTimeToLive(), 							httpClientProperties.getTimeToLiveUnit(), 							this.registryBuilder); 			this.connectionManagerTimer.schedule(new TimerTask() { 				@Override 				public void run() { 					connectionManager.closeExpiredConnections(); 				} 			}, 30000, httpClientProperties.getConnectionTimerRepeat()); 			return connectionManager; 		}  		@Bean 		@ConditionalOnProperty(value = "feign.compression.response.enabled", havingValue = "true") 		public CloseableHttpClient customHttpClient( 				HttpClientConnectionManager httpClientConnectionManager, 				FeignHttpClientProperties httpClientProperties) { 			HttpClientBuilder builder = HttpClientBuilder.create() 					.disableCookieManagement().useSystemProperties(); 			this.httpClient = createClient(builder, httpClientConnectionManager, 					httpClientProperties); 			return this.httpClient; 		}  		@Bean 		@ConditionalOnProperty(value = "feign.compression.response.enabled", havingValue = "false", matchIfMissing = true) 		public CloseableHttpClient httpClient(ApacheHttpClientFactory httpClientFactory, 											  HttpClientConnectionManager httpClientConnectionManager, 											  FeignHttpClientProperties httpClientProperties) { 			this.httpClient = createClient(httpClientFactory.createBuilder(), 					httpClientConnectionManager, httpClientProperties); 			return this.httpClient; 		}  		private CloseableHttpClient createClient(HttpClientBuilder builder, 												 HttpClientConnectionManager httpClientConnectionManager, 												 FeignHttpClientProperties httpClientProperties) { 			RequestConfig defaultRequestConfig = RequestConfig.custom() 					.setConnectTimeout(httpClientProperties.getConnectionTimeout()) 					.setRedirectsEnabled(httpClientProperties.isFollowRedirects()) 					.build(); 			CloseableHttpClient httpClient = builder 					.setDefaultRequestConfig(defaultRequestConfig) 					.setConnectionManager(httpClientConnectionManager).build(); 			return httpClient; 		}  		@PreDestroy 		public void destroy() throws Exception { 			this.connectionManagerTimer.cancel(); 			if (this.httpClient != null) { 				this.httpClient.close(); 			} 		}  	} }</code></pre> <p><strong><span style="color:#f33b45;">1、</span></strong>不仅需要引入上面的maven依赖，才<span style="color:#e579b6;"><strong>@ConditionalOnClass(ApacheHttpClient.class)</strong></span>能注入</p> <p><span style="color:#f33b45;"><strong>2、</strong></span>需要配置属性<strong><span style="color:#e579b6;">feign.httpclient.enabled</span></strong></p> <p>&nbsp; &nbsp;&nbsp;@ConditionalOnProperty(value = "feign.httpclient.enabled", matchIfMissing = true)</p> <p><span style="color:#f33b45;"><strong>3、</strong></span>构造器依赖于上面注入的CachingSpringLoadBalancerFactory，SpringClientFactory、HttpClient类型Bean，注入返回装饰<span style="color:#86ca5e;">ApacheHttpClient</span>类型的<span style="color:#86ca5e;">LoadBalancerFeignClient</span>客户端</p> <p><span style="color:#f33b45;"><strong>4、</strong></span>创建连接器管理器HttpClientConnectionManager，虽然设置了一些超市等参数信息，并且使用到了上面从配置文件中加载的<span style="color:#f33b45;">FeignHttpClientProperties</span>进行构造依赖注入，但是我们看看真正的管理器实现类为<strong><span style="color:#e579b6;">PoolingHttpClientConnectionManager</span></strong></p> <pre><code class="language-java">public PoolingHttpClientConnectionManager( 		final HttpClientConnectionOperator httpClientConnectionOperator, 		final HttpConnectionFactory&lt;HttpRoute, ManagedHttpClientConnection&gt; connFactory, 		final long timeToLive, final TimeUnit timeUnit) { 	super(); 	this.configData = new ConfigData(); 	this.pool = new CPool(new InternalConnectionFactory( 			this.configData, connFactory), 2, 20, timeToLive, timeUnit); 	this.pool.setValidateAfterInactivity(2000); 	this.connectionOperator = Args.notNull(httpClientConnectionOperator, "HttpClientConnectionOperator"); 	this.isShutDown = new AtomicBoolean(false); }</code></pre> <p><span style="color:#f33b45;"><strong>那么底层真实的线程池参数，则不满足并发量比较高的情况，所以一般建议我们自己显示进行设置，也方便后续进行参数修改，一般需要上线后与其他使用自定义线程池一样进行压测，设置最合理的参数信息。</strong></span></p> <pre><code class="language-java">@Bean(destroyMethod = "close") public CloseableHttpClient httpClient() { 	PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(); 	connectionManager.setMaxTotal(400); 	connectionManager.setDefaultMaxPerRoute(100);  	RequestConfig requestConfig = RequestConfig.custom().setConnectionRequestTimeout(2000)//从连接池获取连接等待超时时间 			.setConnectTimeout(2000)//请求超时时间 			.setSocketTimeout(15000)//等待服务响应超时时间 			.build(); 	HttpClientBuilder httpClientBuilder = HttpClientBuilder.create().setConnectionManager(connectionManager) 			.setDefaultRequestConfig(requestConfig) 			//自定义重试策略，针对502和503重试一次 			.setServiceUnavailableRetryStrategy(new CustomizedServiceUnavailableRetryStrategy()) 			.evictExpiredConnections(); 	return httpClientBuilder.build(); }</code></pre> <h3 id="2%E3%80%81OkHttpFeignLoadBalancedConfiguration">2、OkHttpFeignLoadBalancedConfiguration</h3> <p>&nbsp; &nbsp; &nbsp;对应上面的<span style="color:#86ca5e;"><strong>OkHttpClient</strong></span>类型客户端，需要引入maven依赖，如：</p> <pre><code class="language-html">&lt;dependency&gt;     &lt;groupId&gt;io.github.openfeign&lt;/groupId&gt;     &lt;artifactId&gt;feign-okhttp&lt;/artifactId&gt;     &lt;version&gt;10.2.0&lt;/version&gt; &lt;/dependency&gt;</code></pre> <pre><code class="language-java">@Configuration @ConditionalOnClass(OkHttpClient.class) @ConditionalOnProperty("feign.okhttp.enabled") class OkHttpFeignLoadBalancedConfiguration {  	@Bean 	@ConditionalOnMissingBean(Client.class) 	public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory, 							  SpringClientFactory clientFactory, okhttp3.OkHttpClient okHttpClient) { 		OkHttpClient delegate = new OkHttpClient(okHttpClient); 		return new LoadBalancerFeignClient(delegate, cachingFactory, clientFactory); 	}  	@Configuration 	@ConditionalOnMissingBean(okhttp3.OkHttpClient.class) 	protected static class OkHttpFeignConfiguration {  		private okhttp3.OkHttpClient okHttpClient;  		@Bean 		@ConditionalOnMissingBean(ConnectionPool.class) 		public ConnectionPool httpClientConnectionPool( 				FeignHttpClientProperties httpClientProperties, 				OkHttpClientConnectionPoolFactory connectionPoolFactory) { 			Integer maxTotalConnections = httpClientProperties.getMaxConnections(); 			Long timeToLive = httpClientProperties.getTimeToLive(); 			TimeUnit ttlUnit = httpClientProperties.getTimeToLiveUnit(); 			return connectionPoolFactory.create(maxTotalConnections, timeToLive, ttlUnit); 		}  		@Bean 		public okhttp3.OkHttpClient client(OkHttpClientFactory httpClientFactory, 										   ConnectionPool connectionPool, 										   FeignHttpClientProperties httpClientProperties) { 			Boolean followRedirects = httpClientProperties.isFollowRedirects(); 			Integer connectTimeout = httpClientProperties.getConnectionTimeout(); 			this.okHttpClient = httpClientFactory 					.createBuilder(httpClientProperties.isDisableSslValidation()) 					.connectTimeout(connectTimeout, TimeUnit.MILLISECONDS) 					.followRedirects(followRedirects).connectionPool(connectionPool) 					.build(); 			return this.okHttpClient; 		}  		@PreDestroy 		public void destroy() { 			if (this.okHttpClient != null) { 				this.okHttpClient.dispatcher().executorService().shutdown(); 				this.okHttpClient.connectionPool().evictAll(); 			} 		}  	} }</code></pre> <p><strong><span style="color:#f33b45;">1、</span></strong>不仅需要引入上面的maven依赖，才<span style="color:#e579b6;"><strong>@ConditionalOnClass(</strong></span><span style="color:#e579b6;"><strong>OkHttpClient.class)</strong></span>能注入</p> <p><span style="color:#f33b45;"><strong>2、</strong></span>需要配置属性<span style="color:#e579b6;"><strong>feign.okhttp.enabled</strong></span></p> <p>&nbsp; &nbsp;&nbsp;@ConditionalOnProperty("feign.okhttp.enabled")</p> <p><span style="color:#f33b45;"><strong>3、</strong></span>构造器依赖于上面注入的CachingSpringLoadBalancerFactory，SpringClientFactory、HttpClient类型Bean，注入返回装饰<span style="color:#e579b6;"><strong>OkHttpClient</strong></span>类型的<span style="color:#86ca5e;">LoadBalancerFeignClient</span>客户端</p> <p><span style="color:#f33b45;"><strong>4、</strong></span>构造器依赖注入返回连接器ConnectionPool类型，也使用到了上面配置的FeignHttpClientProperties属性，还有依赖到了OkHttpClientConnectionPoolFactory类型，全局查找发现是从spring-cloud-commons包中的<strong><span style="color:#7c79e5;">HttpClientConfiguration</span></strong>中进行配置的，返回了DefaultOkHttpClientConnectionPoolFactory类型。</p> <pre><code class="language-java">public class DefaultOkHttpClientConnectionPoolFactory 		implements OkHttpClientConnectionPoolFactory {  	@Override 	public ConnectionPool create(int maxIdleConnections, long keepAliveDuration, 			TimeUnit timeUnit) { 		return new ConnectionPool(maxIdleConnections, keepAliveDuration, timeUnit); 	} }</code></pre> <p>直接new的对象，设置了连接的最大数，超时等参数，但是线程池是对象中默认写死的，入下：</p> <pre><code class="language-java">public final class ConnectionPool {    private static final Executor executor = new ThreadPoolExecutor(0 /* corePoolSize */,       Integer.MAX_VALUE /* maximumPoolSize */, 60L /* keepAliveTime */, TimeUnit.SECONDS,       new SynchronousQueue&lt;Runnable&gt;(), Util.threadFactory("OkHttp ConnectionPool", true)); }</code></pre> <p>&nbsp; &nbsp; 直接使用了juc原生的线程池，核心线程为0，最大线程为Integer最大值，并且使用了无界队列SynchronousQueue【入队需要有其他任务出队】，即maxIdleConnections最大连接数参数就很关键了，需要小心参数。</p> <h3 id="3%E3%80%81DefaultFeignLoadBalancedConfiguration">3、DefaultFeignLoadBalancedConfiguration</h3> <p>&nbsp; &nbsp; 不满足上面的条件，则会注入默认的Feign Client，如下：</p> <pre><code class="language-java">@Configuration class DefaultFeignLoadBalancedConfiguration { 	@Bean 	@ConditionalOnMissingBean 	public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory, 							  SpringClientFactory clientFactory) { 		return new LoadBalancerFeignClient(new Client.Default(null, null), cachingFactory, 				clientFactory); 	} }</code></pre> <h2 id="%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8B%E2%80%8BFeignAutoConfiguration"> FeignAutoConfiguration</h2> <p>&nbsp; &nbsp; 由于上面的优先级高于该自动装配项，大多的装配以上面为准，但是这里装配了两个比较重要的Bean：<strong><span style="color:#f33b45;">HasFeatures</span></strong>和<span style="color:#f33b45;"><strong>FeignContext</strong></span>，特别是FeignContext会在后面<span style="color:#86ca5e;"><strong>FeignClientFactoryBean</strong></span><strong>#</strong><span style="color:#86ca5e;"><strong>getObject</strong></span>中使用到。</p> <pre><code class="language-java">public class FeignAutoConfiguration {  	@Autowired(required = false) 	private List&lt;FeignClientSpecification&gt; configurations = new ArrayList&lt;&gt;();  	@Bean 	public HasFeatures feignFeature() { 		return HasFeatures.namedFeature("Feign", Feign.class); 	}  	@Bean 	public FeignContext feignContext() { 		FeignContext context = new FeignContext(); 		context.setConfigurations(this.configurations); 		return context; 	} }</code></pre> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220602/f6aa19ca5fd5c54a1a4126884fe16cd6.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-92031.htm">宠物粮网店名字大全图片（宠物粮网店名字大全图片及价格）</a></p>
+                                        <p>下一个：<a href="/news/article-92805.htm">vue路由跳转router-link清除历史记录的三种方式</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-shadowrocket-node.htm" title="「3月4日」最高速度21.3M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「3月4日」最高速度21.3M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-86953.htm" title="宠物领养证书怎么办理手续流程（宠物领养中心要钱吗）">宠物领养证书怎么办理手续流程（宠物领养中心要钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-clash-node-daily-updates.htm" title="「3月20日」最高速度19.1M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「3月20日」最高速度19.1M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-79873.htm" title="手撕spring核心源码，彻底搞懂spring流程">手撕spring核心源码，彻底搞懂spring流程</a></li>
+                        <li class="py-2"><a href="/news/article-86251.htm" title="广州宠物零食市场批发市场在哪里啊多少钱（广州宠物食品市场）">广州宠物零食市场批发市场在哪里啊多少钱（广州宠物食品市场）</a></li>
+                        <li class="py-2"><a href="/news/article-83389.htm" title="免费领养狗狗正规网站平台有哪些软件可以下载（免费领养狗狗app）">免费领养狗狗正规网站平台有哪些软件可以下载（免费领养狗狗app）</a></li>
+                        <li class="py-2"><a href="/news/article-79874.htm" title="动物疫苗现状如何 动物疫苗现状如何分析">动物疫苗现状如何 动物疫苗现状如何分析</a></li>
+                        <li class="py-2"><a href="/news/article-92030.htm" title="springboot整合XXL-JOB实行动态定时任务">springboot整合XXL-JOB实行动态定时任务</a></li>
+                        <li class="py-2"><a href="/news/article-73081.htm" title="动物疫苗批发商（动物疫苗经销商）">动物疫苗批发商（动物疫苗经销商）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-clash-v2ray-ss-ssr.htm" title="「3月3日」最高速度21.9M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「3月3日」最高速度21.9M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
