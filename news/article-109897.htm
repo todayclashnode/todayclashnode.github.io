@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+
+<head>
+        <link rel="canonical" href="https://todayclashnode.github.io/news/article-109897.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>maven的安装和配置以及如何在IDEA中配置maven</title>
+        <meta name="description" content="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maven是当前开发中最常用的项目管理工具之一，IDEA是目前最受欢迎的Java开发工具，对于Java开" />
+        <link rel="icon" href="/assets/website/img/todayclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="TodayClashNode今日订阅站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://todayclashnode.github.io/news/article-109897.htm" />
+    <meta property="og:site_name" content="TodayClashNode今日订阅站" />
+    <meta property="og:title" content="maven的安装和配置以及如何在IDEA中配置maven" />
+    <meta property="og:image" content="https://todayclashnode.github.io/uploads/20240614/a24bb66a4ee4114343797725073bb34a.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:23:59" />
+    <meta property="og:updated_time" content="2025-05-02T09:23:59" />
+        <meta property="og:description" content="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maven是当前开发中最常用的项目管理工具之一，IDEA是目前最受欢迎的Java开发工具，对于Java开" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="maven的安装和配置以及如何在IDEA中配置maven">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/font-awesome/css/font-awesome.min.css">
+    <!-- Google fonts - Poppins-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,600">
+    <!-- Lightbox-->
+    <link rel="stylesheet" href="/assets/website/js/frontend/todayclashnode/lightbox2/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/fontastic.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/assets/website/css/todayclashnode/custom.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Tweaks for older IEs-->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PB8VLG2G25"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PB8VLG2G25');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- navbar-->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                                <span>
+                    Today ClashNode                </span>
+                                </a>
+
+                <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/" class="nav-link">首页</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/free-nodes/" class="nav-link">免费节点</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/paid-subscribe/" class="nav-link">推荐机场</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/client.htm" class="nav-link">客户端</a></li>
+                                                <!-- Link-->
+                        <li class="nav-item"> <a href="/news/" class="nav-link">新闻资讯</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section-->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>maven的安装和配置以及如何在IDEA中配置maven</h1>
+            <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/" class="animsition-link">首页</a></li>
+                    <li class="breadcrumb-item"><a href="/news/" class="animsition-link">新闻资讯</a></li>
+                    <li aria-current="page" class="breadcrumb-item active">正文</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row" id="list">
+                <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maven是当前开发中最常用的项目管理工具之一，IDEA是目前最受欢迎的Java开发工具，对于Java开发者来说，掌握在IDEA中配置maven是很有必要的，本文将详细介绍如何在IDEA中配置maven。</p> <p>一、maven的下载</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先是在maven的官网中下载maven，官网地址：<a class="link-info" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://maven.apache.org/"  title="https://maven.apache.org/" rel="nofollow">https://maven.apache.org/</a>，下载完成后，需要对压缩包进行解压，需要注意的是，解压到的目录不能含有中文和空格，而且我们需要记住这个目录的位置，后续环境变量的配置需要用到。</p> <p>二、环境变量的配置</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 和安装jdk类似，使用maven前也需要进行环境变量的配置，右击计算机，选择属性-&gt;高级系统设置-&gt;环境变量。先在系统变量中新建变量MAVEN_HOME，变量值设置为maven的解压目录，例如我是将maven解压到D:\apache-maven-3.6.3这个目录下，如下图所示：</p> <p><img fetchpriority="high" decoding="async" alt="" height="189" src="http://img.555519.xyz/uploads3/20220603/c848b10c5c46f95a802727b652516032.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 然后在系统变量中选择Path并编辑，在Path的变量值中加入%MAVEN_HOME%\bin，注意多个值之间要用逗号隔开，如下图所示：</p> <p><img decoding="async" alt="" height="182" src="http://img.555519.xyz/uploads3/20220603/f481a81547af80a77e958dbe116e10bf.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;为了验证配置是否成功，可以打开命令行（快捷键win+R，并输入cmd），输入mvn -version，如果配置成功，会显示类似的如下信息：</p> <p><img decoding="async" alt="" height="188" src="http://img.555519.xyz/uploads3/20220603/820d8e0fc4137c5a33cb99e8d45d7f3d.jpg"></p> <p>三、在IDEA中配置maven</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;IDEA本身自带maven，但是我们一般使用自己下载配置的maven，因此接下来我们需要在IDEA中配置maven，点击File-&gt;Settings，直接在搜索框输入maven，然后我们就可以对maven进行相关的设置。</p> <p><img loading="lazy" decoding="async" alt="" height="530" src="http://img.555519.xyz/uploads3/20220603/c6988bf88bf778ea3d92357ddb7f7a2a.jpg"></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先，在Maven home directory这一栏中，选择我们先前安装好的maven目录，在User settings file这一栏中，选择我们的maven配置文件，默认情况下，我们选择maven安装目录下conf目录下的settings.xml即可，在Local repository这一栏中，我们需要指定本地的maven仓库地址，这个本地仓库用于存放maven下载的jar包，这样下次需要再次使用这个jar包时，会优先从本地仓库中寻找，例如我的maven仓库路径设置为D:\Maven\repository，本地仓库的路径可以由自行设置。最后保存设置，这样我们就完成了在IDEA中配置maven。</p> <p>四、为所有新项目都配置maven</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 为了方便以后创建的每个项目都使用我们配置好的maven，而不需要重复设置，以IDEA 2020.1为例进行设置，点击File-&gt;New Projects Settings-&gt;Settings for New Projects，同样可以搜索maven进行设置，弹出的界面如下图所示，我们只需要按照先前的方法再进行配置保存即可，这样我们以后创建的每个maven项目就不需要重新进行设置了。</p> <p><img loading="lazy" decoding="async" alt="" height="610" src="http://img.555519.xyz/uploads3/20220603/eec5b0278b906c0d926d8ddde18e5a2e.jpg"></p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109067.htm">JavaScript如何使用标准数组值对数组进行排序或排列</a></p>
+                                        <p>下一个：<a href="/news/article-109898.htm">开宠物用品商店赚钱吗（想开宠物用品店都需要做什么）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-109898.htm" title="开宠物用品商店赚钱吗（想开宠物用品店都需要做什么）">开宠物用品商店赚钱吗（想开宠物用品店都需要做什么）</a></li>
+                        <li class="py-2"><a href="/news/article-95821.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-clash-node-daily-updates.htm" title="「4月1日」最高速度21.7M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接">「4月1日」最高速度21.7M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-106360.htm" title="塞尔达海拉鲁大陆神庙（塞尔达传说海拉鲁神庙在哪）">塞尔达海拉鲁大陆神庙（塞尔达传说海拉鲁神庙在哪）</a></li>
+                        <li class="py-2"><a href="/news/article-88388.htm" title="动物的疫苗多少钱一针打几针啊（动物的疫苗多少钱一针打几针啊）">动物的疫苗多少钱一针打几针啊（动物的疫苗多少钱一针打几针啊）</a></li>
+                        <li class="py-2"><a href="/news/article-101660.htm" title="本地宠物领养机构（宠物领养平台 知乎）">本地宠物领养机构（宠物领养平台 知乎）</a></li>
+                        <li class="py-2"><a href="/news/article-92805.htm" title="vue路由跳转router-link清除历史记录的三种方式">vue路由跳转router-link清除历史记录的三种方式</a></li>
+                        <li class="py-2"><a href="/news/article-91245.htm" title="宠物打疫苗后多久可以驱虫（宠物打完疫苗多久可以吃饭）">宠物打疫苗后多久可以驱虫（宠物打完疫苗多久可以吃饭）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-free-clash.htm" title="「4月3日」最高速度20M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「4月3日」最高速度20M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-106359.htm" title="动物疫苗扎到手里怎么办图片真实（动物打疫苗后的不良反应）">动物疫苗扎到手里怎么办图片真实（动物打疫苗后的不良反应）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+        <footer class="main-footer">
+        <div class="copyrights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-left">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p class="copyrights-text mb-3 mb-lg-0">
+                          TodayClashNode今日订阅站 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-right">
+                        <ul class="list-inline social mb-0">
+                            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook"></i></a><a href="#" class="social-link"><i class="fa fa-twitter"></i></a><a href="#" class="social-link"><i class="fa fa-youtube-play"></i></a><a href="#" class="social-link"><i class="fa fa-vimeo"></i></a><a href="#" class="social-link"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript files-->
+    <script src="/assets/website/js/frontend/todayclashnode/jquery/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="/assets/website/js/frontend/todayclashnode/lightbox2/js/lightbox.js"></script>
+    <script src="/assets/website/js/frontend/todayclashnode/front.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
