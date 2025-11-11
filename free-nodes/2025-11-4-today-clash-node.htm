@@ -252,9 +252,14 @@ Clash的灵活性和协议支持是其最大优势之一。它不仅支持多种
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何自动切换最佳节点？</h5></div>
+    <div class="panel-heading"><h5>VLESS 的 XTLS 模式能提升传输效率吗？</h5></div>
     <div class="panel-body">
-        通过延迟测速和策略组设置，PassWall2 可自动选择延迟最低的节点处理流量。用户无需手动切换节点，保证网页、视频和游戏流量的速度和稳定性，提高整体网络体验。<hr />    </div>
+        XTLS 模式通过减少冗余加密和握手次数，降低延迟，提高吞吐量。在高并发和短连接场景下，效率明显优于普通 TLS，同时保持数据安全性和隐蔽性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 连接延迟过高该如何优化？</h5></div>
+    <div class="panel-body">
+        可尝试切换传输协议（如 WS、gRPC）、调整 MTU 或启用 MUX 多路复用功能。同时检查服务器地理位置、带宽和延迟，并选择最优节点以降低延迟。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2RayN 订阅更新后节点重复如何清理？</h5></div>
@@ -262,29 +267,14 @@ Clash的灵活性和协议支持是其最大优势之一。它不仅支持多种
         V2RayN 在导入订阅时有时会产生重复节点，可以点击右键菜单选择“删除重复项”。若仍存在旧节点缓存，可清空配置文件夹内的 history.json 并重新导入订阅，保证节点列表整洁。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 的 XTLS 模式能提升传输效率吗？</h5></div>
-    <div class="panel-body">
-        XTLS 模式通过减少冗余加密和握手次数，降低延迟，提高吞吐量。在高并发和短连接场景下，效率明显优于普通 TLS，同时保持数据安全性和隐蔽性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的 TLS+伪装模式适合什么情况？</h5></div>
-    <div class="panel-body">
-        TLS+伪装模式能隐藏真实流量特征，适用于封锁严格的环境。结合域名伪装和证书配置，可以使流量看似普通 HTTPS 请求，提高安全性和抗封锁能力。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray PAC 模式如何提高访问速度和便利性？</h5></div>
     <div class="panel-body">
         PAC 模式根据规则动态判断流量是否走代理，无需手动切换节点。适合国内外混合访问场景，提高网页和视频访问速度与稳定性，减少操作错误导致的访问失败。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 如何为不同用户设置流量限制？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 如何自动切换最佳节点？</h5></div>
     <div class="panel-body">
-        管理员可为每个用户设置独立带宽限制和流量配额。超过限制时，可自动降速或阻止访问，确保服务器资源合理分配，避免单用户占用过多带宽，提升整体网络效率和公平性。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 的 Web Dashboard 有哪些功能？</h5></div>
-    <div class="panel-body">
-        Mihomo 的 Web 控制面板允许用户可视化管理节点、分流规则、日志查看与系统状态监控。可通过浏览器访问 Dashboard 地址进行远程管理，方便多设备统一控制。<hr />    </div>
+        通过延迟测速和策略组设置，PassWall2 可自动选择延迟最低的节点处理流量。用户无需手动切换节点，保证网页、视频和游戏流量的速度和稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 如何实现按应用分流？</h5></div>
@@ -292,14 +282,24 @@ Clash的灵活性和协议支持是其最大优势之一。它不仅支持多种
         Surfboard 支持通过策略组和规则文件按应用分流，将不同应用的流量分配到不同节点。这样可保证游戏或视频走低延迟节点，提高访问速度并优化网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 的 TLS+伪装模式适合什么情况？</h5></div>
+    <div class="panel-body">
+        TLS+伪装模式能隐藏真实流量特征，适用于封锁严格的环境。结合域名伪装和证书配置，可以使流量看似普通 HTTPS 请求，提高安全性和抗封锁能力。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 如何为不同用户设置流量限制？</h5></div>
+    <div class="panel-body">
+        管理员可为每个用户设置独立带宽限制和流量配额。超过限制时，可自动降速或阻止访问，确保服务器资源合理分配，避免单用户占用过多带宽，提升整体网络效率和公平性。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的日志界面怎么看节点状态？</h5></div>
     <div class="panel-body">
         Shadowrocket 的日志界面实时显示连接记录与节点响应延迟。绿色代表成功连接，红色代表失败，通过查看错误码可判断是 DNS 问题、TLS 握手失败还是代理超时。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 连接延迟过高该如何优化？</h5></div>
+    <div class="panel-heading"><h5>Mihomo 的 Web Dashboard 有哪些功能？</h5></div>
     <div class="panel-body">
-        可尝试切换传输协议（如 WS、gRPC）、调整 MTU 或启用 MUX 多路复用功能。同时检查服务器地理位置、带宽和延迟，并选择最优节点以降低延迟。    </div>
+        Mihomo 的 Web 控制面板允许用户可视化管理节点、分流规则、日志查看与系统状态监控。可通过浏览器访问 Dashboard 地址进行远程管理，方便多设备统一控制。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -328,16 +328,16 @@ Clash的灵活性和协议支持是其最大优势之一。它不仅支持多种
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-11-3-free-ssr-subscribe.htm" title="「11月3日」最高速度19.3M/S，2025年V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点每天更新免费机场订阅链接">「11月3日」最高速度19.3M/S，2025年V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-22-free-node-subscribe-links.htm" title="「10月22日」最高速度18M/S，2025年SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点每天更新免费机场订阅链接">「10月22日」最高速度18M/S，2025年SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-12-free-shadowrocket-node.htm" title="「10月12日」最高速度20.8M/S，2025年V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接">「10月12日」最高速度20.8M/S，2025年V2ray节点/Clash节点/SSR节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-7-free-ssr-subscribe.htm" title="「10月7日」最高速度19M/S，2025年Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新免费机场订阅链接">「10月7日」最高速度19M/S，2025年Clash节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点每天更新免费机场订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-10-shadowrocket-node.htm" title="「10月10日」最高速度18.6M/S，2025年SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接">「10月10日」最高速度18.6M/S，2025年SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-11-free-v2ray.htm" title="「10月11日」最高速度22M/S，2025年Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点每天更新免费机场订阅链接">「10月11日」最高速度22M/S，2025年Clash节点/Singbox节点/SSR节点/Shadowrocket节点/V2ray节点每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-8-node-share-links.htm" title="「10月8日」最高速度18.2M/S，2025年Clash节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点每天更新免费机场订阅链接">「10月8日」最高速度18.2M/S，2025年Clash节点/V2ray节点/Shadowrocket节点/SSR节点/Singbox节点每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-16-free-ssr-subscribe.htm" title="「10月16日」最高速度20.4M/S，2025年SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接">「10月16日」最高速度20.4M/S，2025年SSR节点/V2ray节点/Clash节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-14-clash-v2ray-ss-ssr.htm" title="「10月14日」最高速度22.2M/S，2025年Singbox节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点每天更新免费机场订阅链接">「10月14日」最高速度22.2M/S，2025年Singbox节点/Shadowrocket节点/Clash节点/SSR节点/V2ray节点每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-23-shadowrocket-node.htm" title="「10月23日」最高速度21.2M/S，2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点每天更新免费机场订阅链接">「10月23日」最高速度21.2M/S，2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-20-clash-node-daily-updates.htm" title="「10月20日」最高速度21.1M/S，2025年V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新免费机场订阅链接">「10月20日」最高速度21.1M/S，2025年V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-24-clash-v2ray-ss-ssr.htm" title="「10月24日」最高速度21.5M/S，2025年Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点每天更新免费机场订阅链接">「10月24日」最高速度21.5M/S，2025年Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-27-free-ssr-subscribe.htm" title="「10月27日」最高速度20.2M/S，2025年Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接">「10月27日」最高速度20.2M/S，2025年Clash节点/SSR节点/V2ray节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-10-5-clash-v2ray-ss-ssr.htm" title="「10月5日」最高速度22.8M/S，2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点每天更新免费机场订阅链接">「10月5日」最高速度22.8M/S，2025年SSR节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-26-free-node-subscribe.htm" title="「10月26日」最高速度22.9M/S，2025年Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点每天更新免费机场订阅链接">「10月26日」最高速度22.9M/S，2025年Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/SSR节点每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-21-free-high-speed-nodes.htm" title="「10月21日」最高速度22.8M/S，2025年V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点每天更新免费机场订阅链接">「10月21日」最高速度22.8M/S，2025年V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-2-clash-node.htm" title="「11月2日」最高速度20M/S，2025年Clash节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点每天更新免费机场订阅链接">「11月2日」最高速度20M/S，2025年Clash节点/Singbox节点/Shadowrocket节点/SSR节点/V2ray节点每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-10-4-node-share.htm" title="「10月4日」最高速度22M/S，2025年Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点每天更新免费机场订阅链接">「10月4日」最高速度22M/S，2025年Singbox节点/V2ray节点/SSR节点/Shadowrocket节点/Clash节点每天更新免费机场订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -349,7 +349,7 @@ Clash的灵活性和协议支持是其最大优势之一。它不仅支持多种
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">5</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
