@@ -289,24 +289,14 @@ _Clash_能够帮助用户突破防火墙或访问被封锁的内容，尤其对�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何保证规则订阅的实时更新？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持远程规则订阅 URL，可设置定期自动更新频率，如每小时或每天。自动更新保证节点和规则保持最新，减少手动维护，提高访问速度和分流效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow TUN 模式对系统全局流量的作用是什么？</h5></div>
-    <div class="panel-body">
-        TUN 模式拦截系统 IP 层的所有流量，实现全局代理效果。相比 SOCKS5 只作用于特定应用，TUN 能覆盖游戏、视频和浏览器流量，保证全系统科学上网体验稳定高效。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 节点分组功能有什么优势？</h5></div>
     <div class="panel-body">
         分组管理可按延迟、地区或用途分类节点，并结合策略组实现自动分流。用户可快速选择最优节点，提高访问速度和稳定性，方便管理大量节点并优化维护效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 的 TLS 选项何时使用最合适？</h5></div>
+    <div class="panel-heading"><h5>Netch 无法代理游戏怎么办？</h5></div>
     <div class="panel-body">
-        TLS 可提供加密和伪装，适合在高封锁或不稳定网络环境使用。结合域名伪装和证书，可让流量看起来像普通 HTTPS 请求，提升抗封锁能力和隐蔽性。<hr />    </div>
+        若 Netch 无法代理游戏，需检查游戏进程是否被正确捕获，以及防火墙是否阻止了 TUN 模式。可尝试以管理员身份运行程序，或切换为 Socks 模式重新导入节点。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>何为 fake-ip 模式，它的优缺点是什么？</h5></div>
@@ -319,9 +309,19 @@ _Clash_能够帮助用户突破防火墙或访问被封锁的内容，尤其对�
         Sing-box 支持 GeoIP 路由规则，通过引入国家数据库可根据 IP 自动判断地理位置。例如可设置 CN 走直连，US/JP 走代理，以此实现分国家策略路由，适合需要访问不同地区内容的用户。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 无法代理游戏怎么办？</h5></div>
+    <div class="panel-heading"><h5>Mellow TUN 模式对系统全局流量的作用是什么？</h5></div>
     <div class="panel-body">
-        若 Netch 无法代理游戏，需检查游戏进程是否被正确捕获，以及防火墙是否阻止了 TUN 模式。可尝试以管理员身份运行程序，或切换为 Socks 模式重新导入节点。<hr />    </div>
+        TUN 模式拦截系统 IP 层的所有流量，实现全局代理效果。相比 SOCKS5 只作用于特定应用，TUN 能覆盖游戏、视频和浏览器流量，保证全系统科学上网体验稳定高效。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何实现精确端口分流？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持按端口匹配流量，将不同类型应用流量分配到指定节点。结合策略组，可提高访问速度和网络稳定性，实现精准分流和优化用户体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何保证规则订阅的实时更新？</h5></div>
+    <div class="panel-body">
+        Sing-box 支持远程规则订阅 URL，可设置定期自动更新频率，如每小时或每天。自动更新保证节点和规则保持最新，减少手动维护，提高访问速度和分流效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 节点延迟高、丢包严重，常见排查步骤有哪些？</h5></div>
@@ -334,9 +334,9 @@ _Clash_能够帮助用户突破防火墙或访问被封锁的内容，尤其对�
         通过延迟测速和策略组配置，PassWall2 可自动切换到延迟最低的节点。这样用户无需手动操作，即可在访问网页、视频或游戏时保持高速和稳定连接，优化网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何实现精确端口分流？</h5></div>
+    <div class="panel-heading"><h5>VMess 的 TLS 选项何时使用最合适？</h5></div>
     <div class="panel-body">
-        Sing-box 支持按端口匹配流量，将不同类型应用流量分配到指定节点。结合策略组，可提高访问速度和网络稳定性，实现精准分流和优化用户体验。    </div>
+        TLS 可提供加密和伪装，适合在高封锁或不稳定网络环境使用。结合域名伪装和证书，可让流量看起来像普通 HTTPS 请求，提升抗封锁能力和隐蔽性。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -384,16 +384,16 @@ _Clash_能够帮助用户突破防火墙或访问被封锁的内容，尤其对�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/shadowrocket-node-2026-10-11.htm" title="「10月11日」最高速度20.5M/S，2025年Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点每天更新免费机场订阅链接">「10月11日」最高速度20.5M/S，2025年Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点每天更新免费机场订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-17.htm" title="「9月17日」最高速度20.3M/S，2025年Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Clash节点每天更新免费机场订阅链接">「9月17日」最高速度20.3M/S，2025年Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点/Clash节点每天更新免费机场订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-28-free-v2ray.htm" title="「9月28日」最高速度21.5M/S，2025年Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点/Trojan节点每天更新免费机场订阅链接">「9月28日」最高速度21.5M/S，2025年Clash节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点/Trojan节点每天更新免费机场订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-2-free-node-subscribe.htm" title="「10月2日」最高速度22M/S，2025年Singbox节点/Shadowrocket节点/Trojan节点/SSR节点/V2ray节点/Clash节点每天更新免费机场订阅链接">「10月2日」最高速度22M/S，2025年Singbox节点/Shadowrocket节点/Trojan节点/SSR节点/V2ray节点/Clash节点每天更新免费机场订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-28-node-share.htm" title="「10月28日」最高速度20.1M/S，2025年Clash节点/Trojan节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接">「10月28日」最高速度20.1M/S，2025年Clash节点/Trojan节点/V2ray节点/SSR节点/Singbox节点/Shadowrocket节点每天更新免费机场订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-24-free-clash.htm" title="「9月24日」最高速度22M/S，2025年SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/Trojan节点每天更新免费机场订阅链接">「9月24日」最高速度22M/S，2025年SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Clash节点/Trojan节点每天更新免费机场订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-windows-2026-9-15.htm" title="「9月15日」最高速度20.3M/S，2025年Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点每天更新免费机场订阅链接">「9月15日」最高速度20.3M/S，2025年Singbox节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/SSR节点每天更新免费机场订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-v2ray-subscribe-2026-10-1.htm" title="「10月1日」最高速度20.1M/S，2025年Trojan节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新免费机场订阅链接">「10月1日」最高速度20.1M/S，2025年Trojan节点/V2ray节点/Singbox节点/Clash节点/Shadowrocket节点/SSR节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-10-node-share.htm" title="「11月10日」最高速度19M/S，2026年Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Trojan节点/Singbox节点每天更新免费机场订阅链接">「11月10日」最高速度19M/S，2026年Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Trojan节点/Singbox节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-subscribe-node-2026-11-13.htm" title="「11月13日」最高速度19.6M/S，2026年V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新免费机场订阅链接">「11月13日」最高速度19.6M/S，2026年V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-17.htm" title="「10月17日」最高速度18.3M/S，2025年Trojan节点/SSR节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点每天更新免费机场订阅链接">「10月17日」最高速度18.3M/S，2025年Trojan节点/SSR节点/Singbox节点/V2ray节点/Clash节点/Shadowrocket节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-18-free-clash.htm" title="「10月18日」最高速度20.5M/S，2025年Trojan节点/Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点每天更新免费机场订阅链接">「10月18日」最高速度20.5M/S，2025年Trojan节点/Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点每天更新免费机场订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/shadowrocket-node-2026-10-21.htm" title="「10月21日」最高速度21.9M/S，2025年Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点每天更新免费机场订阅链接">「10月21日」最高速度21.9M/S，2025年Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Trojan节点/Singbox节点每天更新免费机场订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-26-clash-node.htm" title="「10月26日」最高速度18.4M/S，2025年Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点每天更新免费机场订阅链接">「10月26日」最高速度18.4M/S，2025年Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/V2ray节点/Clash节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-14-free-v2ray.htm" title="「11月14日」最高速度19.2M/S，2026年Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点每天更新免费机场订阅链接">「11月14日」最高速度19.2M/S，2026年Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-10-node-share.htm" title="「10月10日」最高速度20.2M/S，2025年Clash节点/Trojan节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点每天更新免费机场订阅链接">「10月10日」最高速度20.2M/S，2025年Clash节点/Trojan节点/Singbox节点/V2ray节点/SSR节点/Shadowrocket节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-11-12-clash-v2ray-ss-ssr.htm" title="「11月12日」最高速度18.7M/S，2026年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点每天更新免费机场订阅链接">「11月12日」最高速度18.7M/S，2026年Clash节点/Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点/SSR节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-20-free-v2ray.htm" title="「10月20日」最高速度22.2M/S，2025年Shadowrocket节点/Clash节点/SSR节点/Singbox节点/Trojan节点/V2ray节点每天更新免费机场订阅链接">「10月20日」最高速度22.2M/S，2025年Shadowrocket节点/Clash节点/SSR节点/Singbox节点/Trojan节点/V2ray节点每天更新免费机场订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-22-clash-node-daily-updates.htm" title="「10月22日」最高速度18.9M/S，2025年Clash节点/SSR节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点每天更新免费机场订阅链接">「10月22日」最高速度18.9M/S，2025年Clash节点/SSR节点/V2ray节点/Singbox节点/Trojan节点/Shadowrocket节点每天更新免费机场订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -405,13 +405,10 @@ _Clash_能够帮助用户突破防火墙或访问被封锁的内容，尤其对�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                     </ul>
     </div>
